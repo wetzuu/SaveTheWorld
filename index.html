@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matthew Sean Serrano — CS Student &amp; Web Developer</title>
+  <meta name="description" content="Portfolio of Matthew Sean Serrano (wetzuu) — Computer Science student at Mapúa University building web apps with React, TypeScript, and Java." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <!-- pixel dachshund: walks the header line as you scroll (scroll progress) -->
+    <div class="header-dog" aria-hidden="true">
+      <svg class="dog" viewBox="0 0 40 20" width="40" height="20" xmlns="http://www.w3.org/2000/svg">
+        <g class="dog-tail">
+          <rect x="0" y="4" width="2" height="6" />
+          <rect x="2" y="9" width="2" height="2" />
+        </g>
+        <g class="dog-legs-a">
+          <rect x="6" y="16" width="3" height="4" />
+          <rect x="21" y="16" width="3" height="4" />
+        </g>
+        <g class="dog-legs-b">
+          <rect x="11" y="16" width="3" height="4" />
+          <rect x="25" y="16" width="3" height="4" />
+        </g>
+        <rect class="dog-body" x="4" y="10" width="24" height="6" />
+        <rect class="dog-head" x="26" y="3" width="8" height="7" />
+        <rect class="dog-snout" x="34" y="6" width="6" height="3" />
+        <rect class="dog-collar" x="27" y="9" width="6" height="2" />
+        <rect class="dog-ear" x="26" y="4" width="3" height="7" />
+        <rect class="dog-brow" x="31" y="4" width="2" height="1" />
+        <rect class="dog-eye" x="31" y="5" width="2" height="2" />
+        <rect class="dog-nose" x="38" y="5" width="2" height="2" />
+      </svg>
+    </div>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#top" class="nav-logo" aria-label="Home">matthew serrano<span class="nav-caret" aria-hidden="true"></span></a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+        <span></span><span></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="hero-text">
+          <h1 class="hero-title reveal">
+            Matthew Sean Serrano
+          </h1>
+          <p class="hero-sub reveal">
+            First-year computer science student at Mapúa University. I build and
+            deploy web apps between classes — most recently a fragrance discovery
+            site in React and a boarding-house management system in TypeScript.
+          </p>
+          <p class="hero-links reveal">
+            <a href="https://github.com/wetzuu" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/matthew-sean-t-serrano-2647b7406/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:matthewsean1104@gmail.com">Email</a>
+          </p>
+        </div>
+        <pre class="hero-art" aria-hidden="true">          ::=++*+=+=---:=##%
+      -:-:::*#+*###*++++==#%
+   :-==:+++*#+++=+++**++=*##+
+ =-::**=+-:%*=-=++=::=**=::-*+
+==+==*##*==%#*+**=*+-==+**=*%+
+ -:=++###+##%##*+*#+-:---+*%%-
+ -:++*##*+=*:-++*++-:-::--=#%*=
+  =+-+=::=+*-===+*=::::::::-=+*
+   ::=:+=+*#=--::::::::::::::+##
+    *=+==# %#---=::::::::::-=-+#
+           ##*--+#=::::::-==-*#%%
+           **#*--=*+-::::-*###%%%
+           +*##+-=++*====++###*#
+          +**###=--:-+==***#@@%
+         =+*%####*---=-:===+*@%
+         +***###*#+:*#-:-====%%#
+         ***#%%#*#+::+%+-===+%%#
+          ***###*#+::+%%###%%%@@
+           #*=+###*:-#%%%%**#%@@
+            ##=+###**#%%*++#%%%
+            %%#+*###%##***#%%%%
+             #%%##**###%%%%%%@%
+              #%%%%%%%%%  #%@%%
+              +***#       *#%%%
+             ---++*       ++**#%
+             ::=***       *++**##
+            :-++**#        %=*##**
+            ##%#%%%        @###****%
+            %%%@%@           #%%%%%%</pre>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title reveal">About</h2>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              I started tinkering with code in 2018, writing a Discord bot in JavaScript
+              for a server I ran with friends. That bot is still my oldest repo — and the
+              reason I ended up studying computer science.
+            </p>
+            <p>
+              Now at Mapúa, I treat every course project as an excuse to build something
+              I'd actually use. My database class became <strong>Bahay ni Kuya</strong>,
+              a boarding-house management system. My OOP requirement became
+              <strong>HomeQuest</strong>, a real-estate desktop app in Java. Outside class
+              I built <strong>une odeur</strong>, a fragrance review site — twice, because
+              the first version taught me what the stack should have been.
+            </p>
+            <p>
+              I'm early in my career and honest about it. What I bring is momentum: I
+              finish projects, deploy them, and rebuild them when I learn a better way.
+            </p>
+          </div>
+          <aside class="about-facts reveal">
+            <dl>
+              <div><dt>Studying</dt><dd>BS Computer Science, Mapúa University</dd></div>
+              <div><dt>Focus</dt><dd>Web development — React &amp; TypeScript</dd></div>
+              <div><dt>Also into</dt><dd>Fragrances, Discord communities</dd></div>
+              <div><dt>Looking for</dt><dd>Internships &amp; junior web dev opportunities</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <h2 class="section-title reveal">Projects</h2>
+
+        <div class="projects">
+
+          <article class="project reveal">
+            <header class="project-head">
+              <h3><a href="https://github.com/wetzuu/une-odeur-v2" target="_blank" rel="noopener">une odeur v2</a></h3>
+              <span class="project-year">2026 · live on Vercel</span>
+            </header>
+            <p class="project-desc">
+              A fragrance discovery and review site — browse perfumes by category, read
+              community reviews, and keep an account of your favorites. Built with React
+              and Supabase for auth and data.
+            </p>
+            <p class="project-note">
+              The interesting part: this is a full rewrite. v1 was built in Astro, and
+              rebuilding it in React with a real backend meant rethinking routing, state,
+              and data fetching from scratch.
+            </p>
+            <p class="project-stack">React · Supabase · Vite · CSS</p>
+            <p class="project-links">
+              <a href="https://une-odeur-v2.vercel.app" target="_blank" rel="noopener">Live site</a>
+              <a href="https://github.com/wetzuu/une-odeur-v2" target="_blank" rel="noopener">Code</a>
+            </p>
+          </article>
+
+          <article class="project reveal">
+            <header class="project-head">
+              <h3><a href="https://github.com/wetzuu/Buhay-ni-Kuya" target="_blank" rel="noopener">Bahay ni Kuya</a></h3>
+              <span class="project-year">2026 · course project</span>
+            </header>
+            <p class="project-desc">
+              Frontend for a boarding-house management system: tenants, rooms, leases,
+              payments, maintenance requests, and reports — plus an ER-diagram viewer
+              and database backup pages for the admin side.
+            </p>
+            <p class="project-note">
+              My largest codebase so far. Built the whole admin dashboard with reusable
+              primitives — a generic DataTable, entity modals, a <code>useCrud</code>
+              hook — instead of copy-pasting pages.
+            </p>
+            <p class="project-stack">TypeScript · React · Tailwind CSS · shadcn/ui · TanStack Table &amp; Query</p>
+            <p class="project-links">
+              <a href="https://github.com/wetzuu/Buhay-ni-Kuya" target="_blank" rel="noopener">Code</a>
+            </p>
+          </article>
+
+          <article class="project reveal">
+            <header class="project-head">
+              <h3><a href="https://github.com/wetzuu/HomeQuest" target="_blank" rel="noopener">HomeQuest</a></h3>
+              <span class="project-year">2026 · course project</span>
+            </header>
+            <p class="project-desc">
+              A desktop real-estate management app in Java Swing with three distinct
+              roles — owners list properties, agents process transactions, buyers browse
+              listings — each with its own workspace.
+            </p>
+            <p class="project-note">
+              The role-based design was the point: separate models and workspaces per
+              user type, built to practice inheritance and encapsulation on something
+              bigger than a textbook exercise.
+            </p>
+            <p class="project-stack">Java · Swing · NetBeans</p>
+            <p class="project-links">
+              <a href="https://github.com/wetzuu/HomeQuest" target="_blank" rel="noopener">Code</a>
+            </p>
+          </article>
+
+          <article class="project reveal">
+            <header class="project-head">
+              <h3><a href="https://github.com/wetzuu/minamiyuki.bot" target="_blank" rel="noopener">minamiyuki.bot</a></h3>
+              <span class="project-year">2018 — present</span>
+            </header>
+            <p class="project-desc">
+              My personal Discord bot and the project that started everything — first
+              committed in 2018, still maintained today with discord.js.
+            </p>
+            <p class="project-stack">JavaScript · discord.js · Node.js</p>
+            <p class="project-links">
+              <a href="https://github.com/wetzuu/minamiyuki.bot" target="_blank" rel="noopener">Code</a>
+            </p>
+          </article>
+
+          <article class="project reveal">
+            <header class="project-head">
+              <h3><a href="https://github.com/wetzuu/capstoneproject-nsahas" target="_blank" rel="noopener">Appointment Booking Capstone</a></h3>
+              <span class="project-year">2025</span>
+            </header>
+            <p class="project-desc">
+              A Python booking system for CSS100 — appointments saved and managed in
+              code, with the UI designed first in Figma before writing a line of it.
+            </p>
+            <p class="project-stack">Python · Figma</p>
+            <p class="project-links">
+              <a href="https://github.com/wetzuu/capstoneproject-nsahas" target="_blank" rel="noopener">Code</a>
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="container">
+        <h2 class="section-title reveal">Experience</h2>
+
+        <ol class="timeline">
+          <li class="timeline-item reveal">
+            <span class="timeline-date">2025 — present</span>
+            <div>
+              <h3>BS Computer Science — Mapúa University</h3>
+              <p>
+                First-year student. Coursework so far has produced shipped projects
+                rather than throwaway exercises: a boarding-house management system
+                (databases), a real-estate desktop app (OOP), and a Python booking
+                system (intro capstone).
+              </p>
+            </div>
+          </li>
+          <li class="timeline-item reveal">
+            <span class="timeline-date">2026</span>
+            <div>
+              <h3>Independent projects</h3>
+              <p>
+                Designed, built, and deployed <em>une odeur</em> end-to-end — twice.
+                Handled everything from Figma mockups to Supabase auth to Vercel
+                deployment, and made the call to rewrite from Astro to React when the
+                project outgrew a static site.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+      <div class="container">
+        <h2 class="section-title reveal">Skills</h2>
+
+        <dl class="skills-list">
+          <div class="skill-row reveal">
+            <dt>Languages</dt>
+            <dd>TypeScript, JavaScript, Java, Python, HTML &amp; CSS</dd>
+          </div>
+          <div class="skill-row reveal">
+            <dt>Frameworks &amp; libraries</dt>
+            <dd>React, Astro, Tailwind CSS, shadcn/ui, TanStack Table &amp; Query, discord.js, Java Swing</dd>
+          </div>
+          <div class="skill-row reveal">
+            <dt>Databases &amp; backend</dt>
+            <dd>Supabase, MySQL, REST APIs</dd>
+          </div>
+          <div class="skill-row reveal">
+            <dt>Tools</dt>
+            <dd>Git &amp; GitHub, Vite, Vercel, Figma, NetBeans</dd>
+          </div>
+        </dl>
+
+        <div class="lang-bar-wrap reveal">
+          <h3 class="lang-bar-title">Language mix across public repos</h3>
+          <div class="lang-bar" role="img" aria-label="Language breakdown: TypeScript 45%, Java 39%, JavaScript 8%, CSS 4%, Astro 2%, Python 1%">
+            <span style="width:45%" class="lang-ts" title="TypeScript 45%"></span>
+            <span style="width:39%" class="lang-java" title="Java 39%"></span>
+            <span style="width:8%" class="lang-js" title="JavaScript 8%"></span>
+            <span style="width:4%" class="lang-css" title="CSS 4%"></span>
+            <span style="width:2.5%" class="lang-astro" title="Astro 2.5%"></span>
+            <span style="width:1.5%" class="lang-py" title="Python 1.5%"></span>
+          </div>
+          <ul class="lang-legend">
+            <li><i class="lang-ts"></i>TypeScript 45%</li>
+            <li><i class="lang-java"></i>Java 39%</li>
+            <li><i class="lang-js"></i>JavaScript 8%</li>
+            <li><i class="lang-css"></i>CSS 4%</li>
+            <li><i class="lang-astro"></i>Astro 2.5%</li>
+            <li><i class="lang-py"></i>Python 1.5%</li>
+          </ul>
+          <p class="lang-caption">By bytes of code in public repositories, July 2026. On GitHub since 2018.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section-contact" id="contact">
+      <div class="container">
+        <h2 class="section-title reveal">Contact</h2>
+        <p class="contact-lede reveal">
+          I'm looking for internships and chances to work on real products with
+          people who are better than me. If that's you, say hi.
+        </p>
+        <ul class="contact-links reveal">
+          <li><a href="mailto:matthewsean1104@gmail.com">matthewsean1104@gmail.com</a></li>
+          <li><a href="https://github.com/wetzuu" target="_blank" rel="noopener">github.com/wetzuu</a></li>
+          <li><a href="https://www.linkedin.com/in/matthew-sean-t-serrano-2647b7406/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Matthew Sean Serrano · built by hand, no template.</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
