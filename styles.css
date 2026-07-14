@@ -247,6 +247,7 @@ main a:hover {
   letter-spacing: -0.03em;
   margin-bottom: 24px;
 }
+.hero-name-accent { color: var(--accent); }
 
 .hero-sub {
   max-width: 540px;
@@ -263,7 +264,7 @@ main a:hover {
 .hero-links a {
   color: var(--accent);
   text-decoration: none;
-  padding: 9px 18px;
+  padding: 11px 24px;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--surface);
@@ -283,24 +284,33 @@ main a:hover {
 .hero .container { position: relative; }
 .hero-text { position: relative; z-index: 1; max-width: 620px; }
 
-.hero-art {
+.hero-art-wrap {
   position: absolute;
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  margin: 0;
   z-index: 0;
   pointer-events: auto;
   user-select: text;
   -webkit-user-select: text;
   cursor: text;
+  color: var(--accent);
+  opacity: 0.55;
+}
+.hero-art {
+  margin: 0;
   font-family: var(--font-mono);
   font-size: 11px;
   line-height: 1.05;
   letter-spacing: 0;
   white-space: pre;
-  color: var(--accent);
-  opacity: 0.55;
+}
+.hero-art-label {
+  margin-top: 8px;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
 }
 
 /* ---------- Sections ---------- */
@@ -355,21 +365,39 @@ main a:hover {
 
 /* ---------- Projects ---------- */
 .projects { display: grid; gap: 18px; }
+.projects:hover .project:not(:hover),
+.projects:focus-within .project:not(:focus-within) { opacity: 0.62; }
 
 .project {
+  position: relative;
+  isolation: isolate;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 30px 32px;
   display: grid;
   gap: 12px;
-  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s var(--ease);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s var(--ease), opacity 0.35s ease;
 }
+.project::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(135deg, var(--accent-dim), transparent 58%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.project > * { position: relative; z-index: 1; }
 .project:hover {
   border-color: var(--border-strong);
   box-shadow: var(--shadow);
   transform: translateY(-3px);
 }
+.project:hover::after,
+.project:focus-within::after { opacity: 1; }
 
 .project-head {
   display: flex;
@@ -445,6 +473,7 @@ main a:hover {
   margin-bottom: 8px;
 }
 .timeline-item p { color: var(--text-muted); max-width: 620px; }
+.timeline-item p + p { margin-top: 12px; }
 
 /* ---------- Skills ---------- */
 .skills-list { display: grid; margin-bottom: 56px; }
@@ -517,6 +546,13 @@ main a:hover {
 
 /* ---------- Contact ---------- */
 .section-contact { padding-bottom: 130px; }
+.section-contact .container { text-align: center; }
+.section-contact .section-title {
+  display: flex;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
 .contact-lede {
   font-family: var(--font-display);
   font-weight: 500;
@@ -525,6 +561,8 @@ main a:hover {
   line-height: 1.4;
   max-width: 580px;
   margin-bottom: 36px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .contact-links {
   list-style: none;
@@ -533,6 +571,7 @@ main a:hover {
   gap: 12px;
   font-size: 0.94rem;
   font-weight: 500;
+  justify-content: center;
 }
 .contact-links a {
   display: inline-block;
@@ -545,6 +584,40 @@ main a:hover {
   transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s var(--ease);
 }
 .contact-links a:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+.contact-email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+.copy-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 7px 12px;
+  background: var(--surface);
+  color: var(--accent);
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s var(--ease);
+}
+.copy-email svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+.copy-email:hover {
   border-color: var(--accent);
   box-shadow: var(--shadow);
   transform: translateY(-2px);
@@ -584,6 +657,22 @@ main a:hover {
   filter: none;
 }
 
+/* Project cards also use .reveal, so preserve their entry animation while
+   allowing the card border and shadow to ease on hover. */
+.project.reveal {
+  transition:
+    opacity 0.65s var(--ease),
+    transform 0.65s var(--ease),
+    filter 0.65s var(--ease),
+    border-color 0.7s ease,
+    box-shadow 0.7s ease;
+}
+.project.reveal:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; filter: none; transition: none; }
@@ -599,7 +688,7 @@ main a:hover {
    ============================================================ */
 @media (max-width: 900px) {
   /* not enough room beside the text — hide the decorative art */
-  .hero-art { display: none; }
+  .hero-art-wrap { display: none; }
 }
 
 @media (max-width: 860px) {

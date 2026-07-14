@@ -3,6 +3,21 @@
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// Copy the contact address without taking the visitor away from the page.
+document.querySelectorAll(".copy-email").forEach((button) => {
+  button.addEventListener("click", async () => {
+    const label = button.querySelector(".copy-email-label");
+    const originalLabel = label.textContent;
+    try {
+      await navigator.clipboard.writeText(button.dataset.email);
+      label.textContent = "Copied!";
+    } catch {
+      label.textContent = "Copy unavailable";
+    }
+    setTimeout(() => { label.textContent = originalLabel; }, 1800);
+  });
+});
+
 // Header border once scrolled + pixel dachshund that walks the header line.
 // The dog's position doubles as a scroll progress indicator; it faces the
 // direction you're scrolling and trots while the page moves.
