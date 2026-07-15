@@ -89,6 +89,95 @@ navLinks.forEach((_, id) => {
   if (section) sectionObserver.observe(section);
 });
 
+// The ticker loops by translating one half of the track off-screen, so each
+// half has to be at least a viewport wide or a gap sweeps through on large
+// displays. Clone the authored entries until it is, and keep the scroll speed
+// constant (~70px/s) regardless of how many copies that takes.
+const tickerTrack = document.querySelector(".ticker-track");
+
+if (tickerTrack && !reducedMotion.matches) {
+  const PX_PER_SEC = 70;
+  const base = [...tickerTrack.children].slice(0, Math.ceil(tickerTrack.children.length / 2));
+  const setWidth = base.reduce((sum, el) => sum + el.getBoundingClientRect().width, 0);
+
+  let copies = 0;
+  const fillTicker = () => {
+    if (!setWidth) return;
+    const needed = Math.max(2, Math.ceil(window.innerWidth / setWidth) + 1);
+    if (needed === copies) return;
+    copies = needed;
+
+    const half = document.createDocumentFragment();
+    for (let i = 0; i < copies; i++) {
+      base.forEach((el) => half.appendChild(el.cloneNode(true)));
+    }
+    tickerTrack.replaceChildren();
+    tickerTrack.append(half.cloneNode(true), half); // two identical halves → seamless -50%
+    tickerTrack.style.animationDuration = `${(setWidth * copies) / PX_PER_SEC}s`;
+  };
+
+  fillTicker();
+  window.addEventListener("resize", fillTicker, { passive: true });
+}
+
+// Hero stats shuffle their digits for about a second the first time they scroll
+// into view, then land on the real figure.
+const stats = document.querySelector(".hero-stats");
+const statNums = [...document.querySelectorAll(".stat-num")];
+
+// The values are real claims ("05 projects shipped"), so they must end up
+// correct even if the shuffle never runs.
+const settleStats = () => {
+  statNums.forEach((el) => {
+    el.textContent = el.dataset.value;
+    el.classList.remove("shuffling");
+  });
+};
+
+if (stats && statNums.length && !reducedMotion.matches) {
+  const SHUFFLE_MS = 1000;
+  const FRAME_MS = 60; // digit swap rate — fast enough to blur, slow enough to read
+
+  const randomDigits = (length) =>
+    Array.from({ length }, () => Math.floor(Math.random() * 10)).join("");
+
+  const shuffle = (el, delay) => {
+    const final = el.dataset.value;
+
+    setTimeout(() => {
+      el.classList.add("shuffling");
+      const start = performance.now();
+      let lastFrame = 0;
+
+      const spin = (now) => {
+        if (now - start >= SHUFFLE_MS) {
+          el.textContent = final;
+          el.classList.remove("shuffling");
+          return;
+        }
+        if (now - lastFrame >= FRAME_MS) {
+          el.textContent = randomDigits(final.length);
+          lastFrame = now;
+        }
+        requestAnimationFrame(spin);
+      };
+      requestAnimationFrame(spin);
+    }, delay);
+  };
+
+  const statsObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        statNums.forEach((el, i) => shuffle(el, i * 90)); // staggered, left to right
+        statsObserver.disconnect();
+      }
+    },
+    { threshold: 0.25 }
+  );
+  statsObserver.observe(stats);
+}
+
 // Reveal on scroll (respects prefers-reduced-motion via CSS)
 const observer = new IntersectionObserver(
   (entries) => {
@@ -111,5 +200,6 @@ const revealAll = () => {
 setTimeout(() => {
   if (document.visibilityState === "visible" && !document.querySelector(".reveal.visible")) {
     revealAll();
+    settleStats(); // never leave the stats showing their starting values
   }
 }, 2000);
