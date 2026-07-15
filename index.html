@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -46,11 +46,11 @@
         <span></span><span></span>
       </button>
       <ul id="nav-menu" class="nav-menu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about" data-section="about">About</a></li>
+        <li><a href="#projects" data-section="projects">Projects</a></li>
+        <li><a href="#experience" data-section="experience">Experience</a></li>
+        <li><a href="#skills" data-section="skills">Skills</a></li>
+        <li><a href="#contact" data-section="contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -60,22 +60,25 @@
     <!-- ============ HERO ============ -->
     <section class="hero" id="top">
       <div class="container">
-        <div class="hero-text">
-          <h1 class="hero-title reveal">
-            <span class="hero-name-accent">Matthew</span> Tañada Serrano
-          </h1>
-          <p class="hero-sub reveal">
-            First-year computer science student at Mapúa University. I build and
-            deploy web apps; most recently a fragrance discovery
-            site in React and a boarding-house management system in TypeScript.
-          </p>
-          <p class="hero-links reveal">
-            <a href="https://github.com/wetzuu" target="_blank" rel="noopener">GitHub</a>
-            <a href="mailto:matthewtanada4@gmail.com">Email</a>
-          </p>
-        </div>
-        <div class="hero-art-wrap" aria-hidden="true">
-        <pre class="hero-art">          ::=++*+=+=---:=##%
+        <p class="hero-eyebrow reveal"><span class="status-dot" aria-hidden="true"></span>First-year CS at Mapúa — open to internships</p>
+        <div class="hero-layout">
+          <div class="hero-text">
+            <h1 class="hero-title reveal">
+              <span class="hero-line"><em class="hero-accent">Matthew</em></span>
+              <span class="hero-line">Tañada Serrano</span>
+            </h1>
+            <p class="hero-sub reveal">
+              First-year computer science student at Mapúa University. I build and
+              deploy web apps; most recently a fragrance discovery
+              site in React and a boarding-house management system in TypeScript.
+            </p>
+            <p class="hero-links reveal">
+              <a class="btn-solid" href="mailto:matthewtanada4@gmail.com">Get in touch <span aria-hidden="true">→</span></a>
+              <a class="btn-ghost" href="https://github.com/wetzuu" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+            </p>
+          </div>
+          <div class="hero-art-wrap reveal" aria-hidden="true">
+          <pre class="hero-art">          ::=++*+=+=---:=##%
       -:-:::*#+*###*++++==#%
    :-==:+++*#+++=+++**++=*##+
  =-::**=+-:%*=-=++=::=**=::-*+
@@ -104,21 +107,36 @@
             :-++**#        %=*##**
             ##%#%%%        @###****%
             %%%@%@           #%%%%%%</pre>
-          <p class="hero-art-label">my dawg Shiro</p>
+            <p class="hero-art-label">my dawg Shiro</p>
+          </div>
         </div>
+        <dl class="hero-stats reveal">
+          <div><dt>2018</dt><dd>First public commit</dd></div>
+          <div><dt>05</dt><dd>Projects shipped</dd></div>
+          <div><dt>02</dt><dd>Full rewrites survived</dd></div>
+        </dl>
       </div>
     </section>
+
+    <!-- ============ TICKER ============ -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>log&gt; shipping une odeur v2</span><span>log&gt; studying at mapúa</span><span>log&gt; deploying to vercel</span><span>log&gt; walking shiro</span><span>log&gt; rebuilding it better</span><span>log&gt; status: first-year-cs</span>
+        <span>log&gt; shipping une odeur v2</span><span>log&gt; studying at mapúa</span><span>log&gt; deploying to vercel</span><span>log&gt; walking shiro</span><span>log&gt; rebuilding it better</span><span>log&gt; status: first-year-cs</span>
+      </div>
+    </div>
 
     <!-- ============ ABOUT ============ -->
     <section class="section" id="about">
       <div class="container">
-        <h2 class="section-title reveal">About</h2>
+        <p class="section-label reveal">01 / About</p>
+        <h2 class="section-title reveal">Early in the story, <em>honest</em> about it.</h2>
         <div class="about-grid">
           <div class="about-text reveal">
             <p>
-              I started coding as a hobby back in early 2018, creating a 
-              Discord bot in JavaScript for a server I ran with my friends. That bot 
-              is still one of my oldest public repos, and was one of the reasons I 
+              I started coding as a hobby back in early 2018, creating a
+              Discord bot in JavaScript for a server I ran with my friends. That bot
+              is still one of my oldest public repos, and was one of the reasons I
               ended up pursuing computer science.
             </p>
             <p>
@@ -139,7 +157,7 @@
             <dl>
               <div><dt>Studying</dt><dd>BS Computer Science, Mapúa University</dd></div>
               <div><dt>Focus</dt><dd>Web development - React &amp; TypeScript</dd></div>
-              <div><dt>Also into</dt><dd>Sports &amp Gaming</dd></div>
+              <div><dt>Also into</dt><dd>Sports &amp; Gaming</dd></div>
               <div><dt>Looking for</dt><dd>Internships &amp; junior dev opportunities</dd></div>
             </dl>
           </aside>
@@ -150,102 +168,129 @@
     <!-- ============ PROJECTS ============ -->
     <section class="section" id="projects">
       <div class="container">
-        <h2 class="section-title reveal">Projects</h2>
+        <p class="section-label reveal">02 / Work</p>
+        <h2 class="section-title reveal">Selected <em>projects.</em></h2>
+        <p class="section-lede reveal">Five things I've built, deployed, or rebuilt. The rewrites taught me the most.</p>
 
         <div class="projects">
 
           <article class="project reveal">
-            <header class="project-head">
-              <h3><a href="https://github.com/wetzuu/une-odeur-v2" target="_blank" rel="noopener">une odeur v2</a></h3>
-              <span class="project-year">2026 · live on Vercel</span>
-            </header>
-            <p class="project-desc">
-              A fragrance discovery and review site for local and, perhaps, obsure brands. 
-              Browse perfumes by category, read community reviews, and keep an account 
-              of your favorites. Built with React and Supabase for auth and data.
-            </p>
-            <p class="project-note">
-              The interesting part: this is a full rewrite. v1 was built in Astro, and
-              rebuilding it in React with a real backend meant rethinking routing, state,
-              and data fetching from scratch.
-            </p>
-            <p class="project-stack">React · Supabase · Vite · TailwindCSS</p>
-            <p class="project-links">
-              <a href="https://une-odeur-v2.vercel.app" target="_blank" rel="noopener">Live site</a>
-              <a href="https://github.com/wetzuu/une-odeur-v2" target="_blank" rel="noopener">Code</a>
-            </p>
+            <span class="project-index" aria-hidden="true">01</span>
+            <div class="project-body">
+              <header class="project-head">
+                <h3><a href="https://github.com/wetzuu/une-odeur-v2" target="_blank" rel="noopener">une odeur v2<span class="project-arrow" aria-hidden="true">↗</span></a></h3>
+                <span class="project-year">2026 · live on Vercel</span>
+              </header>
+              <p class="project-desc">
+                A fragrance discovery and review site for local and, perhaps, obsure brands.
+                Browse perfumes by category, read community reviews, and keep an account
+                of your favorites. Built with React and Supabase for auth and data.
+              </p>
+              <p class="project-note">
+                The interesting part: this is a full rewrite. v1 was built in Astro, and
+                rebuilding it in React with a real backend meant rethinking routing, state,
+                and data fetching from scratch.
+              </p>
+              <ul class="project-stack" aria-label="Tech stack">
+                <li>React</li><li>Supabase</li><li>Vite</li><li>TailwindCSS</li>
+              </ul>
+              <p class="project-links">
+                <a href="https://une-odeur-v2.vercel.app" target="_blank" rel="noopener">Live site <span aria-hidden="true">→</span></a>
+                <a href="https://github.com/wetzuu/une-odeur-v2" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a>
+              </p>
+            </div>
           </article>
 
           <article class="project reveal">
-            <header class="project-head">
-              <h3><a href="https://github.com/wetzuu/Buhay-ni-Kuya" target="_blank" rel="noopener">Bahay ni Kuya</a></h3>
-              <span class="project-year">2026 · course project</span>
-            </header>
-            <p class="project-desc">
-              An app for a boarding-house management system: tenants, rooms, leases,
-              payments, maintenance requests, and reports; plus an ER-diagram viewer
-              and database backup pages for the admin side.
-            </p>
-            <p class="project-note">
-              The largest codebase I've worked with so far. Built the whole admin dashboard 
-              with reusable primitives; a generic DataTable, entity modals, a <code>useCrud</code>
-              hook; instead of copy-pasting pages.
-            </p>
-            <p class="project-stack">TypeScript · React · Tailwind CSS · shadcn/ui · TanStack Table &amp; Query</p>
-            <p class="project-links">
-              <a href="https://github.com/wetzuu/Buhay-ni-Kuya" target="_blank" rel="noopener">Code</a>
-            </p>
+            <span class="project-index" aria-hidden="true">02</span>
+            <div class="project-body">
+              <header class="project-head">
+                <h3><a href="https://github.com/wetzuu/Buhay-ni-Kuya" target="_blank" rel="noopener">Bahay ni Kuya<span class="project-arrow" aria-hidden="true">↗</span></a></h3>
+                <span class="project-year">2026 · course project</span>
+              </header>
+              <p class="project-desc">
+                An app for a boarding-house management system: tenants, rooms, leases,
+                payments, maintenance requests, and reports; plus an ER-diagram viewer
+                and database backup pages for the admin side.
+              </p>
+              <p class="project-note">
+                The largest codebase I've worked with so far. Built the whole admin dashboard
+                with reusable primitives; a generic DataTable, entity modals, a <code>useCrud</code>
+                hook; instead of copy-pasting pages.
+              </p>
+              <ul class="project-stack" aria-label="Tech stack">
+                <li>TypeScript</li><li>React</li><li>Tailwind CSS</li><li>shadcn/ui</li><li>TanStack Table &amp; Query</li>
+              </ul>
+              <p class="project-links">
+                <a href="https://github.com/wetzuu/Buhay-ni-Kuya" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a>
+              </p>
+            </div>
           </article>
 
           <article class="project reveal">
-            <header class="project-head">
-              <h3><a href="https://github.com/wetzuu/HomeQuest" target="_blank" rel="noopener">HomeQuest</a></h3>
-              <span class="project-year">2026 · course project</span>
-            </header>
-            <p class="project-desc">
-              A desktop real-estate management app in Java Swing with three distinct
-              roles: owners list properties, agents process transactions, buyers browse
-              listings; each with its own workspace.
-            </p>
-            <p class="project-note">
-              The role-based design was the point: separate models and workspaces per
-              user type, built to practice inheritance and encapsulation on something
-              bigger than a textbook exercise.
-            </p>
-            <p class="project-stack">Java · Swing · NetBeans</p>
-            <p class="project-links">
-              <a href="https://github.com/wetzuu/HomeQuest" target="_blank" rel="noopener">Code</a>
-            </p>
+            <span class="project-index" aria-hidden="true">03</span>
+            <div class="project-body">
+              <header class="project-head">
+                <h3><a href="https://github.com/wetzuu/HomeQuest" target="_blank" rel="noopener">HomeQuest<span class="project-arrow" aria-hidden="true">↗</span></a></h3>
+                <span class="project-year">2026 · course project</span>
+              </header>
+              <p class="project-desc">
+                A desktop real-estate management app in Java Swing with three distinct
+                roles: owners list properties, agents process transactions, buyers browse
+                listings; each with its own workspace.
+              </p>
+              <p class="project-note">
+                The role-based design was the point: separate models and workspaces per
+                user type, built to practice inheritance and encapsulation on something
+                bigger than a textbook exercise.
+              </p>
+              <ul class="project-stack" aria-label="Tech stack">
+                <li>Java</li><li>Swing</li><li>NetBeans</li>
+              </ul>
+              <p class="project-links">
+                <a href="https://github.com/wetzuu/HomeQuest" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a>
+              </p>
+            </div>
           </article>
 
           <article class="project reveal">
-            <header class="project-head">
-              <h3><a href="https://github.com/wetzuu/minamiyuki.bot" target="_blank" rel="noopener">minamiyuki.bot</a></h3>
-              <span class="project-year">2018 — present</span>
-            </header>
-            <p class="project-desc">
-              My personal Discord bot and the project that started everything. First
-              committed in 2018, still maintained today with discord.js.
-            </p>
-            <p class="project-stack">JavaScript · discord.js · Node.js</p>
-            <p class="project-links">
-              <a href="https://github.com/wetzuu/minamiyuki.bot" target="_blank" rel="noopener">Code</a>
-            </p>
+            <span class="project-index" aria-hidden="true">04</span>
+            <div class="project-body">
+              <header class="project-head">
+                <h3><a href="https://github.com/wetzuu/minamiyuki.bot" target="_blank" rel="noopener">minamiyuki.bot<span class="project-arrow" aria-hidden="true">↗</span></a></h3>
+                <span class="project-year">2018 — present</span>
+              </header>
+              <p class="project-desc">
+                My personal Discord bot and the project that started everything. First
+                committed in 2018, still maintained today with discord.js.
+              </p>
+              <ul class="project-stack" aria-label="Tech stack">
+                <li>JavaScript</li><li>discord.js</li><li>Node.js</li>
+              </ul>
+              <p class="project-links">
+                <a href="https://github.com/wetzuu/minamiyuki.bot" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a>
+              </p>
+            </div>
           </article>
 
           <article class="project reveal">
-            <header class="project-head">
-              <h3><a href="https://github.com/wetzuu/capstoneproject-nsahas" target="_blank" rel="noopener">Appointment Booking Capstone</a></h3>
-              <span class="project-year">2025</span>
-            </header>
-            <p class="project-desc">
-              A Python booking system for CSS100. Appointments saved and managed in
-              code, with the UI designed first in Figma before writing a line of it.
-            </p>
-            <p class="project-stack">Python · Figma</p>
-            <p class="project-links">
-              <a href="https://github.com/wetzuu/capstoneproject-nsahas" target="_blank" rel="noopener">Code</a>
-            </p>
+            <span class="project-index" aria-hidden="true">05</span>
+            <div class="project-body">
+              <header class="project-head">
+                <h3><a href="https://github.com/wetzuu/capstoneproject-nsahas" target="_blank" rel="noopener">Appointment Booking Capstone<span class="project-arrow" aria-hidden="true">↗</span></a></h3>
+                <span class="project-year">2025</span>
+              </header>
+              <p class="project-desc">
+                A Python booking system for CSS100. Appointments saved and managed in
+                code, with the UI designed first in Figma before writing a line of it.
+              </p>
+              <ul class="project-stack" aria-label="Tech stack">
+                <li>Python</li><li>Figma</li>
+              </ul>
+              <p class="project-links">
+                <a href="https://github.com/wetzuu/capstoneproject-nsahas" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a>
+              </p>
+            </div>
           </article>
 
         </div>
@@ -255,7 +300,8 @@
     <!-- ============ EXPERIENCE ============ -->
     <section class="section" id="experience">
       <div class="container">
-        <h2 class="section-title reveal">Experience</h2>
+        <p class="section-label reveal">03 / Path</p>
+        <h2 class="section-title reveal">Experience so <em>far.</em></h2>
 
         <ol class="timeline">
           <li class="timeline-item reveal">
@@ -304,7 +350,8 @@
     <!-- ============ SKILLS ============ -->
     <section class="section" id="skills">
       <div class="container">
-        <h2 class="section-title reveal">Skills</h2>
+        <p class="section-label reveal">04 / Toolkit</p>
+        <h2 class="section-title reveal">What I <em>work with.</em></h2>
 
         <dl class="skills-list">
           <div class="skill-row reveal">
@@ -351,20 +398,20 @@
     <!-- ============ CONTACT ============ -->
     <section class="section section-contact" id="contact">
       <div class="container">
-        <h2 class="section-title reveal">Contact</h2>
+        <p class="section-label reveal">05 / Contact</p>
         <p class="contact-lede reveal">
           I'm looking for internships and chances to work on real products with
-          people who are better than me. If that's you, say hi.
+          people who are <em>better than me.</em> If that's you, say hi.
         </p>
         <ul class="contact-links reveal">
           <li class="contact-email">
-            <a href="mailto:matthewtanada4@gmail.com">matthewtanada4@gmail.com</a>
+            <a class="btn-solid" href="mailto:matthewtanada4@gmail.com">matthewtanada4@gmail.com <span aria-hidden="true">→</span></a>
             <button class="copy-email" type="button" data-email="matthewtanada4@gmail.com" aria-label="Copy email address">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 8.5V6.75A1.75 1.75 0 0 1 10.75 5h6.5A1.75 1.75 0 0 1 19 6.75v8.5A1.75 1.75 0 0 1 17.25 17H15.5"/><rect x="5" y="8.5" width="10" height="10" rx="1.75"/></svg>
               <span class="copy-email-label">Copy address</span>
             </button>
           </li>
-          <li><a href="https://github.com/wetzuu" target="_blank" rel="noopener">github.com/wetzuu</a></li>
+          <li><a class="btn-ghost" href="https://github.com/wetzuu" target="_blank" rel="noopener">github.com/wetzuu <span aria-hidden="true">↗</span></a></li>
         </ul>
       </div>
     </section>

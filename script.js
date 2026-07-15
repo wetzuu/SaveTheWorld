@@ -68,6 +68,27 @@ menu.addEventListener("click", (e) => {
   }
 });
 
+// Underline the nav link for the section currently in view.
+const navLinks = new Map(
+  [...document.querySelectorAll(".nav-menu a[data-section]")].map((a) => [a.dataset.section, a])
+);
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        navLinks.forEach((link, id) => {
+          link.classList.toggle("active", id === entry.target.id);
+        });
+      }
+    }
+  },
+  { rootMargin: "-35% 0px -60% 0px" }
+);
+navLinks.forEach((_, id) => {
+  const section = document.getElementById(id);
+  if (section) sectionObserver.observe(section);
+});
+
 // Reveal on scroll (respects prefers-reduced-motion via CSS)
 const observer = new IntersectionObserver(
   (entries) => {
