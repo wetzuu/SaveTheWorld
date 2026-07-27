@@ -96,11 +96,16 @@ navLinks.forEach((_, id) => {
 const tickerTrack = document.querySelector(".ticker-track");
 
 if (tickerTrack && !reducedMotion.matches) {
-  const PX_PER_SEC = 70;
-  const base = [...tickerTrack.children].slice(0, Math.ceil(tickerTrack.children.length / 2));
-  const setWidth = base.reduce((sum, el) => sum + el.getBoundingClientRect().width, 0);
+  const PX_PER_SEC = 90;
+  // Snapshot the authored entries before any cloning; the live nodes get
+  // replaced below, so keep detached copies as the source of truth.
+  const authored = [...tickerTrack.children]
+    .slice(0, Math.ceil(tickerTrack.children.length / 2))
+    .map((el) => el.cloneNode(true));
 
+  let setWidth = 0;
   let copies = 0;
+
   const fillTicker = () => {
     if (!setWidth) return;
     const needed = Math.max(2, Math.ceil(window.innerWidth / setWidth) + 1);
@@ -109,14 +114,28 @@ if (tickerTrack && !reducedMotion.matches) {
 
     const half = document.createDocumentFragment();
     for (let i = 0; i < copies; i++) {
-      base.forEach((el) => half.appendChild(el.cloneNode(true)));
+      authored.forEach((el) => half.appendChild(el.cloneNode(true)));
     }
     tickerTrack.replaceChildren();
     tickerTrack.append(half.cloneNode(true), half); // two identical halves → seamless -50%
     tickerTrack.style.animationDuration = `${(setWidth * copies) / PX_PER_SEC}s`;
   };
 
-  fillTicker();
+  // Measure only once the webfont is in — measuring against the fallback makes
+  // the track come out too narrow and a gap sweeps through mid-loop.
+  const measure = () => {
+    setWidth = [...tickerTrack.children]
+      .slice(0, authored.length)
+      .reduce((sum, el) => sum + el.getBoundingClientRect().width, 0);
+    copies = 0;
+    fillTicker();
+  };
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(measure);
+  } else {
+    measure();
+  }
   window.addEventListener("resize", fillTicker, { passive: true });
 }
 
