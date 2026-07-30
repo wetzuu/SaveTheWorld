@@ -257,6 +257,66 @@ a { color: inherit; }
 .nav-toggle[aria-expanded="true"] span:first-child { transform: translateY(4px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] span:last-child { transform: translateY(-4px) rotate(-45deg); }
 
+/* ---------- Section rail (fixed scroll-spy index) ---------- */
+/* Lives in the right gutter, so it only appears when the viewport is wide
+   enough to clear the centered container (see media query below). Items are
+   mirrored (label · tick · number) so the numbers align to the right edge. */
+.section-rail {
+  position: fixed;
+  top: 50%;
+  right: 28px;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: none; /* enabled once the gutter has room (see media query) */
+}
+.section-rail ol {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* right-align rows of differing width */
+  gap: 16px;
+}
+.section-rail a {
+  display: flex;
+  flex-direction: row-reverse; /* number sits at the far right edge */
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--faint);
+  opacity: 0.7;
+  transition: opacity 0.3s var(--ease), color 0.3s var(--ease);
+}
+.section-rail:hover a { opacity: 1; }
+.rail-num {
+  font-variant-numeric: tabular-nums;
+  transition: color 0.3s var(--ease);
+}
+/* the tick is the "─": a hairline that lengthens and turns accent when active */
+.rail-tick {
+  width: 14px;
+  height: 1px;
+  background: var(--hair-2);
+  transition: width 0.35s var(--ease), background 0.3s var(--ease);
+}
+.rail-label {
+  letter-spacing: 0.06em;
+  color: var(--faint);
+  transition: color 0.3s var(--ease), transform 0.35s var(--ease);
+}
+.section-rail a:hover { opacity: 1; color: var(--muted); }
+.section-rail a:hover .rail-tick { width: 22px; }
+
+.section-rail a.active { opacity: 1; }
+.section-rail a.active .rail-num { color: var(--accent-ink); font-weight: 500; }
+.section-rail a.active .rail-tick { width: 30px; background: var(--accent); }
+.section-rail a.active .rail-label { color: var(--ink); transform: translateX(-2px); }
+
+@media (min-width: 1360px) {
+  .section-rail { display: block; }
+}
+
 /* ---------- Links in body text ---------- */
 main a {
   color: var(--ink);
@@ -389,15 +449,11 @@ main a:hover {
 
 /* ---------- Hero ASCII dog ---------- */
 .hero-art-wrap {
+  position: relative;
   justify-self: end;
-  user-select: text;
-  -webkit-user-select: text;
-  cursor: text;
-  color: var(--accent);
-  opacity: 0.6;
-  transition: opacity 0.4s;
 }
-.hero-art-wrap:hover { opacity: 0.9; }
+/* opacity/colour live on the art itself now, so the callouts layered beside it
+   keep their own full-strength styling */
 .hero-art {
   margin: 0;
   font-family: var(--font-mono);
@@ -405,6 +461,63 @@ main a:hover {
   line-height: 1.05;
   letter-spacing: 0;
   white-space: pre;
+  color: var(--accent);
+  opacity: 0.6;
+  user-select: text;
+  -webkit-user-select: text;
+  cursor: text;
+  transition: opacity 0.4s;
+}
+.hero-art-wrap:hover .hero-art { opacity: 0.9; }
+
+/* Numbered callouts to the left of the art. Each dashed leader fills the gap
+   and meets the art on the right, punctuated by a small accent node — like a
+   blueprint annotation wired into the drawing. */
+.art-callouts {
+  position: absolute;
+  right: 100%;
+  margin-right: -4px;
+  top: 9%;
+  bottom: 30%;
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.art-callout {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.art-callout .cn {
+  flex: none;
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+}
+.art-callout .cl {
+  position: relative;
+  flex: 1 1 auto;
+  height: 2px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--hair-2) 0 4px,
+    transparent 4px 9px
+  );
+}
+.art-callout .cl::after { /* node where the leader meets the art */
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translate(50%, -50%);
 }
 
 /* ---------- Hero stats (hairline row, editorial) ---------- */
@@ -479,7 +592,7 @@ main a:hover {
 }
 
 /* ---------- Sections ---------- */
-.section { padding: 112px 0; }
+.section { padding: 112px 0; scroll-margin-top: 84px; }
 .section + .section { border-top: 1px solid var(--hair); }
 
 .section-label {
@@ -878,11 +991,19 @@ main a:hover {
   .header-dog.walking .dog-legs-a, .header-dog.walking .dog-legs-b,
   .nav-caret, .status-dot, .ticker-track { animation: none; }
   .btn-solid:hover, .btn-ghost:hover { transform: none; }
+  .rail-tick { transition: background 0.3s; } /* keep color, drop the length animation */
+  .section-rail a.active .rail-label { transform: none; }
 }
 
 /* ============================================================
    Responsive
    ============================================================ */
+/* below this the text/art gap closes and the callouts would sit on the
+   paragraph — drop them but keep the art itself */
+@media (max-width: 1200px) {
+  .art-callouts { display: none; }
+}
+
 @media (max-width: 940px) {
   /* not enough room beside the text — hide the decorative art */
   .hero-art-wrap { display: none; }

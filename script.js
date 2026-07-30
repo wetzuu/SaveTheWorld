@@ -68,23 +68,24 @@ menu.addEventListener("click", (e) => {
   }
 });
 
-// Underline the nav link for the section currently in view.
-const navLinks = new Map(
-  [...document.querySelectorAll(".nav-menu a[data-section]")].map((a) => [a.dataset.section, a])
-);
+// Mark the link(s) for the section currently in view — this drives both the
+// nav underline and the side rail's active node, so they stay in lockstep.
+const sectionLinks = [...document.querySelectorAll("a[data-section]")];
+const sectionIds = [...new Set(sectionLinks.map((a) => a.dataset.section))];
+const setActiveSection = (id) => {
+  sectionLinks.forEach((link) => {
+    link.classList.toggle("active", link.dataset.section === id);
+  });
+};
 const sectionObserver = new IntersectionObserver(
   (entries) => {
     for (const entry of entries) {
-      if (entry.isIntersecting) {
-        navLinks.forEach((link, id) => {
-          link.classList.toggle("active", id === entry.target.id);
-        });
-      }
+      if (entry.isIntersecting) setActiveSection(entry.target.id);
     }
   },
   { rootMargin: "-35% 0px -60% 0px" }
 );
-navLinks.forEach((_, id) => {
+sectionIds.forEach((id) => {
   const section = document.getElementById(id);
   if (section) sectionObserver.observe(section);
 });
@@ -137,6 +138,62 @@ if (tickerTrack && !reducedMotion.matches) {
     measure();
   }
   window.addEventListener("resize", fillTicker, { passive: true });
+}
+
+// Stretch each hero-art callout's dashed leader so it reaches the dog's actual
+// left edge at that height. The ASCII silhouette steps inward as it descends,
+// so a fixed length would leave the lower leaders stranded in whitespace; we
+// measure the first glyph on the nearest art line and extend the dash to meet it.
+const artPre = document.querySelector(".hero-art");
+const artCallouts = [...document.querySelectorAll(".art-callout")];
+
+if (artPre && artPre.firstChild && artCallouts.length) {
+  const OVERLAP = 5; // let the node settle just onto the drawing
+  const textNode = artPre.firstChild;
+
+  const glyphEdges = () => {
+    const lines = textNode.textContent.split("\n");
+    const edges = [];
+    let idx = 0;
+    for (const line of lines) {
+      const first = line.search(/\S/);
+      if (first >= 0) {
+        const range = document.createRange();
+        range.setStart(textNode, idx + first);
+        range.setEnd(textNode, idx + first + 1);
+        const r = range.getBoundingClientRect();
+        edges.push({ y: r.top + r.height / 2, left: r.left });
+      }
+      idx += line.length + 1; // +1 for the newline
+    }
+    return edges;
+  };
+
+  const positionCallouts = () => {
+    if (!artPre.getClientRects().length) return; // art hidden on narrow viewports
+    const edges = glyphEdges();
+    if (!edges.length) return;
+    for (const callout of artCallouts) {
+      if (!callout.getClientRects().length) continue; // hidden on this viewport
+      const cl = callout.querySelector(".cl");
+      cl.style.flex = "none";
+      const clLeft = cl.getBoundingClientRect().left;
+      const box = callout.getBoundingClientRect();
+      const cy = box.top + box.height / 2;
+      let nearest = edges[0];
+      for (const g of edges) {
+        if (Math.abs(g.y - cy) < Math.abs(nearest.y - cy)) nearest = g;
+      }
+      cl.style.width = `${Math.max(24, nearest.left - clLeft + OVERLAP)}px`;
+    }
+  };
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(positionCallouts);
+  } else {
+    positionCallouts();
+  }
+  window.addEventListener("resize", positionCallouts, { passive: true });
 }
 
 // Hero stats shuffle their digits for about a second the first time they scroll

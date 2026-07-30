@@ -55,6 +55,19 @@
     </nav>
   </header>
 
+  <!-- Fixed scroll-spy rail: monospace section index pinned to the left gutter.
+       The active node is driven by the same observer as the nav underline
+       (any a[data-section] gets .active), so the two stay in lockstep. -->
+  <nav class="section-rail" aria-label="Section progress">
+    <ol>
+      <li><a href="#about" data-section="about"><span class="rail-num">01</span><span class="rail-tick" aria-hidden="true"></span><span class="rail-label">about</span></a></li>
+      <li><a href="#projects" data-section="projects"><span class="rail-num">02</span><span class="rail-tick" aria-hidden="true"></span><span class="rail-label">work</span></a></li>
+      <li><a href="#experience" data-section="experience"><span class="rail-num">03</span><span class="rail-tick" aria-hidden="true"></span><span class="rail-label">path</span></a></li>
+      <li><a href="#skills" data-section="skills"><span class="rail-num">04</span><span class="rail-tick" aria-hidden="true"></span><span class="rail-label">toolkit</span></a></li>
+      <li><a href="#contact" data-section="contact"><span class="rail-num">05</span><span class="rail-tick" aria-hidden="true"></span><span class="rail-label">contact</span></a></li>
+    </ol>
+  </nav>
+
   <main id="main">
 
     <!-- ============ HERO ============ -->
@@ -107,6 +120,14 @@
             :-++**#        %=*##**
             ##%#%%%        @###****%
             %%%@%@           #%%%%%%</pre>
+            <!-- numbered callouts whose dashed leaders extend across the gap and
+                 connect into the ASCII art, like blueprint annotations -->
+            <div class="art-callouts">
+              <span class="art-callout"><i class="cn">01</i><i class="cl"></i></span>
+              <span class="art-callout"><i class="cn">02</i><i class="cl"></i></span>
+              <span class="art-callout"><i class="cn">03</i><i class="cl"></i></span>
+              <span class="art-callout"><i class="cn">04</i><i class="cl"></i></span>
+            </div>
           </div>
         </div>
         <dl class="hero-stats reveal">
@@ -434,8 +455,9 @@
         <div class="contact-card reveal">
           <p class="section-label">05 / Contact</p>
           <p class="contact-lede">
-            I'm looking for internships and chances to work on real products with
-            people who are <em>better than me.</em> If that's you, say hi.
+            I'm looking for internships and opportunities to contribute to real
+            products while learning from <em>experienced engineers.</em> If that's
+            you, say hi.
           </p>
           <div class="contact-actions">
             <a class="btn-solid" href="mailto:matthewtanada4@gmail.com">matthewtanada4@gmail.com <span aria-hidden="true">→</span></a>
