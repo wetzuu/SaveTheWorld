@@ -470,56 +470,6 @@ main a:hover {
 }
 .hero-art-wrap:hover .hero-art { opacity: 0.9; }
 
-/* Numbered callouts to the left of the art. Each dashed leader fills the gap
-   and meets the art on the right, punctuated by a small accent node — like a
-   blueprint annotation wired into the drawing. */
-.art-callouts {
-  position: absolute;
-  right: 100%;
-  margin-right: -4px;
-  top: 9%;
-  bottom: 30%;
-  width: 170px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  pointer-events: none;
-}
-.art-callout {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-}
-.art-callout .cn {
-  flex: none;
-  font-style: normal;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  color: var(--faint);
-}
-.art-callout .cl {
-  position: relative;
-  flex: 1 1 auto;
-  height: 2px;
-  background: repeating-linear-gradient(
-    to right,
-    var(--hair-2) 0 4px,
-    transparent 4px 9px
-  );
-}
-.art-callout .cl::after { /* node where the leader meets the art */
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 50%;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--accent);
-  transform: translate(50%, -50%);
-}
-
 /* ---------- Hero stats (hairline row, editorial) ---------- */
 .hero-stats {
   width: 100%;
@@ -998,12 +948,6 @@ main a:hover {
 /* ============================================================
    Responsive
    ============================================================ */
-/* below this the text/art gap closes and the callouts would sit on the
-   paragraph — drop them but keep the art itself */
-@media (max-width: 1200px) {
-  .art-callouts { display: none; }
-}
-
 @media (max-width: 940px) {
   /* not enough room beside the text — hide the decorative art */
   .hero-art-wrap { display: none; }
