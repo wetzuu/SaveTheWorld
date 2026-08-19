@@ -70,6 +70,7 @@ a { color: inherit; }
 
 /* ---------- Accent italic (shared by every emphasized word) ---------- */
 .hero-accent,
+.hero-sub em,
 .section-title em,
 .contact-lede em,
 .timeline-item p em {
@@ -442,8 +443,7 @@ main a:hover {
   letter-spacing: -0.025em;
 }
 
-.hero-greeting__prompt,
-.hero-greeting__semi {
+.hero-greeting__prompt {
   color: var(--faint);
   font-weight: 400;
 }
@@ -455,6 +455,46 @@ main a:hover {
 .hero-greeting__quote {
   color: var(--accent);
   opacity: 0.78;
+}
+
+.hero-greeting__text {
+  background: linear-gradient(
+    105deg,
+    var(--accent-ink) 0%,
+    var(--accent-ink) 38%,
+    #3a7d58 46%,
+    #5fa07a 50%,
+    #3a7d58 54%,
+    var(--accent-ink) 62%,
+    var(--accent-ink) 100%
+  );
+  background-size: 240% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: hero-greeting-shimmer 6s ease-in-out infinite;
+}
+
+.hero-greeting__cursor {
+  display: inline-block;
+  width: 0.085em;
+  height: 0.84em;
+  margin-left: 0.05em;
+  vertical-align: -0.07em;
+  border-radius: 1px;
+  background: var(--accent);
+  opacity: 0.9;
+  animation: hero-greeting-cursor 1.08s step-end infinite;
+}
+
+@keyframes hero-greeting-shimmer {
+  0%, 100% { background-position: 100% 50%; }
+  50% { background-position: 0% 50%; }
+}
+
+@keyframes hero-greeting-cursor {
+  0%, 45% { opacity: 0.9; }
+  50%, 100% { opacity: 0; }
 }
 
 .hero-sub {
@@ -965,6 +1005,14 @@ main a:hover {
   .btn-solid:hover, .btn-ghost:hover { transform: none; }
   .rail-tick { transition: background 0.3s; } /* keep color, drop the length animation */
   .section-rail a.active .rail-label { transform: none; }
+  .hero-greeting__text {
+    animation: none;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: var(--accent-ink);
+  }
+  .hero-greeting__cursor { animation: none; opacity: 0.9; }
 }
 
 /* ============================================================
