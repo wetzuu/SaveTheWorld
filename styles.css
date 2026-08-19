@@ -22,6 +22,8 @@
   --font-serif: "Instrument Serif", "Georgia", serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-fraunces: "Fraunces", var(--font-serif);
+  --accent-name: #3a6650;
 
   /* Corner radii — one scale, used everywhere so nothing looks improvised */
   --r-xs: 6px;
@@ -70,7 +72,6 @@ a { color: inherit; }
 
 /* ---------- Accent italic (shared by every emphasized word) ---------- */
 .hero-accent,
-.hero-sub em,
 .section-title em,
 .contact-lede em,
 .timeline-item p em {
@@ -501,6 +502,15 @@ main a:hover {
   max-width: 520px;
   color: var(--muted);
   margin-bottom: 36px;
+}
+
+.hero-name {
+  font-family: var(--font-fraunces);
+  font-weight: 300;
+  font-optical-sizing: auto;
+  letter-spacing: 0.015em;
+  color: var(--accent-name);
+  font-size: 1.14em;
 }
 
 .hero-links {
