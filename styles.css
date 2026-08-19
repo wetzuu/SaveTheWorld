@@ -435,6 +435,28 @@ main a:hover {
   display: inline-block;
 }
 
+/* Hero greeting — terminal string literal; scoped to h1 text only */
+.hero-greeting {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.hero-greeting__prompt,
+.hero-greeting__semi {
+  color: var(--faint);
+  font-weight: 400;
+}
+
+.hero-greeting__str {
+  color: var(--accent-ink);
+}
+
+.hero-greeting__quote {
+  color: var(--accent);
+  opacity: 0.78;
+}
+
 .hero-sub {
   max-width: 520px;
   color: var(--muted);
