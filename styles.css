@@ -312,6 +312,9 @@ a { color: inherit; }
   .section-rail { display: block; }
 }
 
+bold { 
+  font-weight: 600; 
+}
 /* ---------- Links in body text ---------- */
 main a {
   color: var(--ink);
