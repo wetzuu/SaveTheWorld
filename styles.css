@@ -1604,6 +1604,8 @@ body {
 .terminal-card .hero-art {
   position: relative;
   z-index: 1;
+  width: max-content;
+  max-width: 100%;
   margin: 12px auto 0;
   font-size: 10px;
   line-height: 1.04;
