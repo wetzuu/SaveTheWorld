@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matthew Tañada Serrano — CS Major &amp; Web Developer</title>
-  <meta name="description" content="Portfolio of Matthew Tañada Serrano — Computer Science student at Mapúa University building web apps with React, TypeScript, and Java." />
+  <title>Matthew Tañada Serrano — CS Student &amp; Developer</title>
+  <meta name="description" content="Matthew Tañada Serrano, second-year Computer Science student at Mapúa University. Building web apps with React and TypeScript, and learning across the stack." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -46,7 +46,7 @@
     </nav>
   </header>
 
-  <!-- Fixed scroll-spy rail: monospace section index pinned to the left gutter.
+  <!-- Fixed scroll-spy rail: monospace section index pinned to the right gutter.
        The active node is driven by the same observer as the nav underline
        (any a[data-section] gets .active), so the two stay in lockstep. -->
   <nav class="section-rail" aria-label="Section progress">
@@ -64,7 +64,7 @@
     <!-- ============ HERO ============ -->
     <section class="hero" id="top">
       <div class="container">
-        <p class="hero-eyebrow reveal"><span class="status-dot" aria-hidden="true"></span>First-year CS at Mapúa — open to internships</p>
+        <p class="hero-eyebrow reveal"><span class="status-dot" aria-hidden="true"></span>Second-year CS at Mapúa — open to internships</p>
         <div class="hero-layout">
           <div class="hero-text">
             <h1 class="hero-title reveal">
@@ -74,8 +74,8 @@
             </h1>
             <p class="hero-sub reveal">
               I am <em>Matthew Tañada Serrano</em>, a second-year computer science student at Mapúa University. I build and
-              deploy web apps; most recently a fragrance discovery site in React and
-              an expense tracker in TypeScript.
+              deploy web apps, from fragrance discovery to personal finance. My current
+              focus is SafeGo, a travel-risk information app, while I keep learning across the stack.
             </p>
             <p class="hero-links reveal">
               <a class="btn-solid" href="mailto:matthewtanada4@gmail.com">Get in touch <span aria-hidden="true">→</span></a>
@@ -126,9 +126,9 @@
           </div>
         </div>
         <dl class="hero-stats reveal">
-          <div><dt><span class="stat-num" data-value="2018">2018</span></dt><dd>First public commit</dd></div>
-          <div><dt><span class="stat-num" data-value="06">06</span></dt><dd>Projects shipped</dd></div>
-          <div><dt><span class="stat-num" data-value="02">02</span></dt><dd>Full rewrites survived</dd></div>
+          <div><dt><span class="stat-num">2018</span></dt><dd>Started building</dd></div>
+          <div><dt><span class="stat-num">07</span></dt><dd>Selected projects</dd></div>
+          <div><dt><span class="stat-num">02</span></dt><dd>Year of CS studies</dd></div>
         </dl>
       </div>
     </section>
@@ -147,31 +147,28 @@
         <div class="about-grid">
           <div class="about-text reveal">
             <p>
-              I started coding as a small hobby back in early 2018, creating a
-              Discord bot in JavaScript as something to try, in simple interest. That bot
+              I started coding in 2018 with a small JavaScript Discord bot,
+              following my curiosity and learning as I went. That bot
               is still one of my oldest public repos, and was one of the reasons I
               ended up pursuing Computer Science.
             </p>
             <p>
-              Now at Mapúa University, I spend my time building projects that I intend to 
-              scale outwards into something that can be turned into an actual app that people 
-              of the same interest or passion, may use. Most of my current projects are either 
-              improved versions of old repos, or course requirements that I intend to turn into 
-              functional and deployable apps for people to use. Currently, I find myself networking and 
-              connecting with other like-minded individuals through events, workshops, and conferences 
-              through my organization and other ways to connect.
-
+              Now in my second year at Mapúa University, I turn personal interests and
+              course projects into apps people can use. I work mainly with React and
+              TypeScript, and I'm learning Node.js, Express, Prisma, and database design
+              by building beyond the front end.
             </p>
             <p>
-              I'm early in my career and honest about it. And I see myself bringing dedication and passion. 
-              I finish and initiate projects, deploy them, and find myself analyzing how I can build in a better way, 
-              once I have the proper knowledge.
+              I'm still early in my career. I learn by shipping, revisiting old decisions,
+              and improving projects as my understanding grows. Outside the code, I help
+              organize campus events and connect with other builders. Sweet coffee and
+              dogs are always welcome.
             </p>
           </div>
           <aside class="about-facts reveal">
             <dl>
               <div><dt>Studying</dt><dd>BS Computer Science, Mapúa University</dd></div>
-              <div><dt>Focus</dt><dd>Web development — React &amp; TypeScript</dd></div>
+              <div><dt>Focus</dt><dd>React &amp; TypeScript; learning full-stack development</dd></div>
               <div><dt>Also into</dt><dd>Fitness &amp; Gaming</dd></div>
               <div><dt>Looking for</dt><dd>Internships &amp; junior dev opportunities</dd></div>
             </dl>
@@ -185,12 +182,119 @@
       <div class="container">
         <p class="section-label reveal">02 / Work</p>
         <h2 class="section-title reveal">Selected <em>projects.</em></h2>
-        <p class="section-lede reveal">Six things I've built, deployed, or rebuilt. The rewrites taught me the most.</p>
+        <p class="section-lede reveal">Seven projects spanning web apps, desktop experiments, and my first Discord bot. A mix of ongoing work, deployed apps, and learning projects.</p>
 
         <div class="projects">
 
           <article class="project reveal">
             <span class="project-index" aria-hidden="true">01</span>
+            <div class="project-body">
+              <header class="project-head">
+                <h3><a href="https://github.com/wetzuu/SafeGo" target="_blank" rel="noopener">SafeGo<span class="project-arrow" aria-hidden="true">↗</span></a></h3>
+                <span class="project-year">2026 · active development</span>
+              </header>
+              <p class="project-desc">
+                A travel-risk information app for severe weather. Enter an origin and
+                destination to explore a real road route, color-coded risk sections,
+                modeled weather, and the sources behind each assessment.
+              </p>
+              <p class="project-note">
+                Grown from a static prototype into a Next.js app with OSRM routing,
+                Open-Meteo weather, and optional PostgreSQL/PostGIS storage. Still a
+                development pilot: coverage is limited, official feeds need configuration,
+                and community submissions remain disabled pending moderation.
+              </p>
+              <ul class="project-stack" aria-label="Tech stack">
+                <li>TypeScript</li><li>Next.js</li><li>React</li><li>PostgreSQL</li><li>PostGIS</li><li>OSRM</li>
+              </ul>
+              <p class="project-links">
+                <a href="https://github.com/wetzuu/SafeGo" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a>
+              </p>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <span class="project-index" aria-hidden="true">02</span>
+            <div class="project-body">
+              <header class="project-head">
+                <h3><a href="https://github.com/aeyvmor/penumbra" target="_blank" rel="noopener">Penumbra<span class="project-arrow" aria-hidden="true">↗</span></a></h3>
+                <span class="project-year">2026 · early development</span>
+              </header>
+              <p class="project-desc">
+                An offline math notebook that recognizes handwritten expressions,
+                solves them locally, and writes answers back in the user's handwriting.
+                Developed for the 2026 Cintana Alliance AI Challenge.
+              </p>
+              <p class="project-note">
+                A collaborative project hosted by aeyvmor. The Windows app is in early
+                development, exploring pen input, handwriting recognition, and computer
+                algebra without a cloud account.
+              </p>
+              <ul class="project-stack" aria-label="Tech stack">
+                <li>C#</li><li>.NET 8</li><li>Handwriting recognition</li><li>Offline desktop app</li>
+              </ul>
+              <p class="project-links">
+                <a href="https://github.com/aeyvmor/penumbra" target="_blank" rel="noopener">Project &amp; code <span aria-hidden="true">→</span></a>
+              </p>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <span class="project-index" aria-hidden="true">03</span>
+            <div class="project-body">
+              <header class="project-head">
+                <h3><a href="https://github.com/wetzuu/semita" target="_blank" rel="noopener">Semita<span class="project-arrow" aria-hidden="true">↗</span></a></h3>
+                <span class="project-year">2026 · live on Vercel</span>
+              </header>
+              <p class="project-desc">
+                A private, browser-based personal finance tracker. Record income and
+                expenses, manage categories and payment methods, set monthly budgets,
+                review reports, and export your data when needed. All data stays in
+                the browser; Semita does not require an account or server.
+              </p>
+              <p class="project-note">
+                Built around everyday student budgeting: recurring transactions,
+                quick-add shortcuts, and spending trends. Zustand keeps state in local
+                browser storage, with JSON export and import for backups.
+              </p>
+              <ul class="project-stack" aria-label="Tech stack">
+                <li>TypeScript</li><li>React</li><li>Vite</li><li>Zustand</li><li>React Router</li><li>Recharts</li><li>Framer Motion</li><li>date-fns</li>
+              </ul>
+              <p class="project-links">
+                <a href="https://pecunia-eight.vercel.app" target="_blank" rel="noopener">Live site <span aria-hidden="true">→</span></a>
+                <a href="https://github.com/wetzuu/semita" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a>
+              </p>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <span class="project-index" aria-hidden="true">04</span>
+            <div class="project-body">
+              <header class="project-head">
+                <h3><a href="https://github.com/wetzuu/BahayniKuya" target="_blank" rel="noopener">Bahay ni Kuya<span class="project-arrow" aria-hidden="true">↗</span></a></h3>
+                <span class="project-year">2026 · course project</span>
+              </header>
+              <p class="project-desc">
+                An app for a boarding-house management system: tenants, rooms, leases,
+                payments, maintenance requests, and reports; plus an ER-diagram viewer
+                and database backup pages for the admin side.
+              </p>
+              <p class="project-note">
+                A full-stack project connecting a reusable React dashboard to an Express
+                API, Prisma, and PostgreSQL. Working across the interface, data model,
+                and local setup has been a practical introduction to backend development.
+              </p>
+              <ul class="project-stack" aria-label="Tech stack">
+                <li>TypeScript</li><li>React</li><li>Express</li><li>Prisma</li><li>PostgreSQL</li><li>TanStack Table &amp; Query</li>
+              </ul>
+              <p class="project-links">
+                <a href="https://github.com/wetzuu/BahayniKuya" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a>
+              </p>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <span class="project-index" aria-hidden="true">05</span>
             <div class="project-body">
               <header class="project-head">
                 <h3><a href="https://github.com/wetzuu/une-odeur-v2" target="_blank" rel="noopener">une odeur v2<span class="project-arrow" aria-hidden="true">↗</span></a></h3>
@@ -217,88 +321,7 @@
           </article>
 
           <article class="project reveal">
-            <span class="project-index" aria-hidden="true">02</span>
-            <div class="project-body">
-              <header class="project-head">
-                <h3><a href="https://github.com/wetzuu/Buhay-ni-Kuya" target="_blank" rel="noopener">Bahay ni Kuya<span class="project-arrow" aria-hidden="true">↗</span></a></h3>
-                <span class="project-year">2026 · course project</span>
-              </header>
-              <p class="project-desc">
-                An app for a boarding-house management system: tenants, rooms, leases,
-                payments, maintenance requests, and reports; plus an ER-diagram viewer
-                and database backup pages for the admin side.
-              </p>
-              <p class="project-note">
-                The largest codebase I've worked with so far. Built the whole admin dashboard
-                with reusable primitives; a generic DataTable, entity modals, a <code>useCrud</code>
-                hook; instead of copy-pasting pages.
-              </p>
-              <ul class="project-stack" aria-label="Tech stack">
-                <li>TypeScript</li><li>React</li><li>Tailwind CSS</li><li>shadcn/ui</li><li>TanStack Table &amp; Query</li>
-              </ul>
-              <p class="project-links">
-                <a href="https://github.com/wetzuu/Buhay-ni-Kuya" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a>
-              </p>
-            </div>
-          </article>
-
-          <article class="project reveal">
-            <span class="project-index" aria-hidden="true">03</span>
-            <div class="project-body">
-              <header class="project-head">
-                <h3><a href="https://github.com/wetzuu/SafeGo" target="_blank" rel="noopener">SafeGo<span class="project-arrow" aria-hidden="true">↗</span></a></h3>
-                <span class="project-year">2026 · course project</span>
-              </header>
-              <p class="project-desc">
-                A student safety and travel risk monitoring interface for severe weather.
-                Search Manila locations, then review risk ratings, contributing factors,
-                advisories, flood points, conditions, and community reports.
-              </p>
-              <p class="project-note">
-                A focused static front-end mock: the experience is built around clear
-                location-based navigation and honest data boundaries, with no accounts,
-                live APIs, or report persistence in this phase.
-              </p>
-              <ul class="project-stack" aria-label="Tech stack">
-                <li>JavaScript</li><li>HTML</li><li>CSS</li><li>Vite</li><li>Tailwind CSS</li>
-              </ul>
-              <p class="project-links">
-                <a href="https://github.com/wetzuu/SafeGo" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a>
-              </p>
-            </div>
-          </article>
-
-          <article class="project reveal">
-            <span class="project-index" aria-hidden="true">04</span>
-            <div class="project-body">
-              <header class="project-head">
-                <h3><a href="https://github.com/wetzuu/semita" target="_blank" rel="noopener">Semita<span class="project-arrow" aria-hidden="true">↗</span></a></h3>
-                <span class="project-year">2026 · live on Vercel</span>
-              </header>
-              <p class="project-desc">
-                A private, browser-based personal finance tracker. Record income and
-                expenses, manage categories and payment methods, set monthly budgets,
-                review reports, and export your data when needed. All data stays in
-                the browser; Semita does not require an account or server.
-              </p>
-              <p class="project-note">
-                Track recurring transactions, quick-add shortcuts, balances, spending
-                breakdowns, and trends. Search and filter the ledger, then export,
-                import, or reset local data. State lives in Zustand, persisted to
-                localStorage under <code>semita-store</code>.
-              </p>
-              <ul class="project-stack" aria-label="Tech stack">
-                <li>TypeScript</li><li>React</li><li>Vite</li><li>Zustand</li><li>React Router</li><li>Recharts</li><li>Framer Motion</li><li>date-fns</li>
-              </ul>
-              <p class="project-links">
-                <a href="https://pecunia-eight.vercel.app" target="_blank" rel="noopener">Live site <span aria-hidden="true">→</span></a>
-                <a href="https://github.com/wetzuu/semita" target="_blank" rel="noopener">Code <span aria-hidden="true">→</span></a>
-              </p>
-            </div>
-          </article>
-
-          <article class="project reveal">
-            <span class="project-index" aria-hidden="true">05</span>
+            <span class="project-index" aria-hidden="true">06</span>
             <div class="project-body">
               <header class="project-head">
                 <h3><a href="https://github.com/wetzuu/HomeQuest" target="_blank" rel="noopener">HomeQuest<span class="project-arrow" aria-hidden="true">↗</span></a></h3>
@@ -324,15 +347,16 @@
           </article>
 
           <article class="project reveal">
-            <span class="project-index" aria-hidden="true">06</span>
+            <span class="project-index" aria-hidden="true">07</span>
             <div class="project-body">
               <header class="project-head">
                 <h3><a href="https://github.com/wetzuu/minamiyuki.bot" target="_blank" rel="noopener">minamiyuki.bot<span class="project-arrow" aria-hidden="true">↗</span></a></h3>
-                <span class="project-year">2018 · obsolete</span>
+                <span class="project-year">2018 · legacy project</span>
               </header>
               <p class="project-desc">
                 My personal Discord bot and the project that started everything. First
-                committed in 2018, still maintained today with discord.js.
+                written in 2018, with moderation and fun commands built on discord.js v11.
+                Kept as a record of where I started.
               </p>
               <ul class="project-stack" aria-label="Tech stack">
                 <li>JavaScript</li><li>discord.js</li><li>Node.js</li>
@@ -359,7 +383,7 @@
             <div>
               <h3>Google Developers Group on Campus — Mapúa University</h3>
               <p>
-                <bold>Director of Events</bold> — currently responsible for planning and executing events
+                <strong>Director of Events</strong> — currently responsible for planning and executing events
                 for the organization.
               </p>
             </div>
@@ -369,9 +393,9 @@
             <div>
               <h3>BS Computer Science — Mapúa University</h3>
               <p>
-                <bold>Second-year student</bold>. Coursework so far has produced shipped projects
-                rather than throwaway exercises: a boarding-house management system, 
-                a real-estate desktop app, and a severe-weather risk monitoring interface focused on Metro Manila's metropolitan area.
+                <strong>Second-year student</strong>. Building on coursework through a
+                boarding-house management system, a real-estate desktop app, and
+                SafeGo's evolving severe-weather travel-risk pilot for Metro Manila.
               </p>
             </div>
           </li>
@@ -420,15 +444,15 @@
         <dl class="skills-list">
           <div class="skill-row reveal">
             <dt>Languages</dt>
-            <dd>TypeScript, JavaScript, Java, Python, HTML &amp; CSS</dd>
+            <dd>TypeScript, JavaScript, Java, Python, C#, HTML &amp; CSS</dd>
           </div>
           <div class="skill-row reveal">
             <dt>Frameworks &amp; libraries</dt>
-            <dd>React, Astro, Tailwind CSS, shadcn/ui, TanStack Table &amp; Query, Zustand, Recharts, Framer Motion, discord.js, Java Swing</dd>
+            <dd>React, Next.js, Astro, Tailwind CSS, shadcn/ui, TanStack Table &amp; Query, Zustand, Recharts, Framer Motion, discord.js, Java Swing</dd>
           </div>
           <div class="skill-row reveal">
             <dt>Databases &amp; backend</dt>
-            <dd>Supabase, MySQL, REST APIs</dd>
+            <dd>Supabase, PostgreSQL, PostGIS, MySQL, REST APIs; learning Node.js, Express &amp; Prisma</dd>
           </div>
           <div class="skill-row reveal">
             <dt>Tools</dt>
@@ -436,26 +460,14 @@
           </div>
         </dl>
 
-        <div class="lang-bar-wrap reveal">
-          <h3 class="lang-bar-title">Language mix across public repos</h3>
-          <div class="lang-bar" role="img" aria-label="Language breakdown: TypeScript 45%, Java 39%, JavaScript 8%, CSS 4%, Astro 2.5%, Python 1.5%">
-            <span style="width:45%" class="lang-ts" title="TypeScript 45%"></span>
-            <span style="width:39%" class="lang-java" title="Java 39%"></span>
-            <span style="width:8%" class="lang-js" title="JavaScript 8%"></span>
-            <span style="width:4%" class="lang-css" title="CSS 4%"></span>
-            <span style="width:2.5%" class="lang-astro" title="Astro 2.5%"></span>
-            <span style="width:1.5%" class="lang-py" title="Python 1.5%"></span>
-          </div>
-          <ul class="lang-legend">
-            <li><i class="lang-ts"></i>TypeScript 45%</li>
-            <li><i class="lang-java"></i>Java 39%</li>
-            <li><i class="lang-js"></i>JavaScript 8%</li>
-            <li><i class="lang-css"></i>CSS 4%</li>
-            <li><i class="lang-astro"></i>Astro 2.5%</li>
-            <li><i class="lang-py"></i>Python 1.5%</li>
-          </ul>
-          <p class="lang-caption">By bytes of code in public repositories, July 2026. On GitHub since 2018.</p>
-        </div>
+        <aside class="learning-note reveal" aria-labelledby="learning-title">
+          <h3 id="learning-title">Currently learning &amp; building</h3>
+          <p>Taking React and TypeScript projects further with backend APIs, relational
+            databases, and geospatial data. SafeGo is my latest active project;
+            machine learning and offline desktop tools are areas I'm exploring too.</p>
+          <p class="profile-updated">Updated <time datetime="2026-09-18">September 18, 2026</time>
+            · <a href="https://github.com/wetzuu" target="_blank" rel="noopener">Follow my progress on GitHub ↗</a></p>
+        </aside>
       </div>
     </section>
 
@@ -473,7 +485,7 @@
             <a class="btn-solid" href="mailto:matthewtanada4@gmail.com">matthewtanada4@gmail.com <span aria-hidden="true">→</span></a>
             <button class="copy-email" type="button" data-email="matthewtanada4@gmail.com" aria-label="Copy email address">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 8.5V6.75A1.75 1.75 0 0 1 10.75 5h6.5A1.75 1.75 0 0 1 19 6.75v8.5A1.75 1.75 0 0 1 17.25 17H15.5"/><rect x="5" y="8.5" width="10" height="10" rx="1.75"/></svg>
-              <span class="copy-email-label">Copy</span>
+              <span class="copy-email-label" role="status" aria-live="polite">Copy</span>
             </button>
           </div>
           <p class="contact-alt">
@@ -487,7 +499,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>© <span id="year"></span> Matthew Tañada Serrano</p>
+      <p>© <span id="year">2026</span> Matthew Tañada Serrano</p>
       <a href="#top">Back to top ↑</a>
     </div>
   </footer>

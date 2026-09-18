@@ -82,7 +82,6 @@ a { color: inherit; }
 .skill-row dt,
 .about-facts dt,
 .project-year,
-.lang-bar-title,
 .hero-stats dd {
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -312,8 +311,8 @@ a { color: inherit; }
   .section-rail { display: block; }
 }
 
-bold { 
-  font-weight: 600; 
+strong {
+  font-weight: 600;
 }
 /* ---------- Links in body text ---------- */
 main a {
@@ -824,59 +823,20 @@ main a:hover {
 }
 .skill-row dd { color: var(--muted); font-size: 0.97rem; }
 
-/* ---------- Language bar ---------- */
-.lang-bar-wrap {
-  background: var(--surface);
-  border: 1px solid var(--hair);
-  border-radius: var(--r-lg);
-  padding: 28px 30px 26px;
-  box-shadow: var(--shadow-sm);
-}
-.lang-bar-title {
-  color: var(--faint);
-  margin-bottom: 16px;
-}
-.lang-bar {
-  display: flex;
-  height: 10px;
-  gap: 3px;
-}
-.lang-bar span {
-  display: block;
-  height: 100%;
-  border-radius: var(--r-pill);
-  transform-origin: left;
-}
-
-.lang-ts    { background: #44618b; }
-.lang-java  { background: #97683d; }
-.lang-js    { background: #99852d; }
-.lang-css   { background: #6d5a9c; }
-.lang-astro { background: #9c5876; }
-.lang-py    { background: #2e6b48; }
-
-.lang-legend {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 24px;
-  margin-top: 18px;
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
+/* ---------- Current learning ---------- */
+.learning-note {
+  padding-top: 28px;
+  border-top: 1px solid var(--hair);
   color: var(--muted);
 }
-.lang-legend li { display: flex; align-items: center; gap: 8px; }
-.lang-legend i {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  display: inline-block;
+.learning-note h3 {
+  margin-bottom: 12px;
+  color: var(--ink);
+  font-size: 1rem;
 }
-.lang-caption {
-  margin-top: 14px;
-  font-size: 0.78rem;
-  color: var(--faint);
-}
+.learning-note p { max-width: 720px; }
+.profile-updated { margin-top: 16px; font-size: .8rem; }
+.profile-updated a { text-underline-offset: 4px; }
 
 /* ---------- Contact ---------- */
 .section-contact { padding-bottom: 128px; }
@@ -975,7 +935,7 @@ main a:hover {
 .site-footer a:hover { color: var(--accent-ink); }
 
 /* ---------- Reveal animation ---------- */
-.reveal {
+.reveal-pending {
   opacity: 0;
   transform: translateY(22px);
   transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
@@ -1081,8 +1041,6 @@ main a:hover {
   .ticker-track span { font-size: 0.85rem; }
 
   .project-head { flex-direction: column; gap: 4px; }
-  .lang-bar-wrap { padding: 24px 20px; }
-  .lang-legend { gap: 8px 16px; }
 
   .contact-actions { flex-direction: column; align-items: stretch; }
   .contact-actions .btn-solid { justify-content: center; }
@@ -1208,39 +1166,6 @@ body {
   line-height: 1.72;
 }
 .hero-sub strong { color: var(--ink); font-weight: 600; }
-.hero-aside {
-  border-top: 1px solid var(--ink);
-  padding-top: 18px;
-  padding-bottom: 4px;
-}
-.hero-aside-label,
-.hero-aside dt {
-  font-family: var(--font-mono);
-  font-size: .64rem;
-  line-height: 1.5;
-  font-weight: 500;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  color: var(--faint);
-}
-.hero-aside-title {
-  margin: 12px 0 34px;
-  font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2vw, 1.55rem);
-  font-weight: 600;
-  line-height: 1.22;
-  letter-spacing: -.025em;
-}
-.hero-aside dl { border-top: 1px solid var(--hair); }
-.hero-aside dl > div {
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid var(--hair);
-}
-.hero-aside dd { color: var(--muted); font-size: .78rem; line-height: 1.5; }
-
 .btn-solid, .btn-ghost {
   min-height: 48px;
   padding: 15px 22px;
@@ -1359,7 +1284,6 @@ body {
 .skills-list { border-top-color: var(--ink); margin-bottom: 84px; }
 .skill-row { grid-template-columns: 260px 1fr; padding: 29px 0; }
 .skill-row dd { font-size: 1rem; line-height: 1.7; }
-.lang-bar-wrap { padding: 32px; border-radius: 3px; box-shadow: none; }
 
 .contact-card {
   padding: clamp(48px, 8vw, 88px);
@@ -1385,7 +1309,7 @@ body {
 .contact-alt { color: #8f9b94; }
 .contact-alt a { color: #c7d0ca; }
 
-.reveal {
+.reveal-pending {
   opacity: 0;
   transform: translateY(16px);
   filter: blur(5px);
@@ -1398,7 +1322,6 @@ body {
 .hero-title.reveal { transition-delay: .04s; }
 .hero-sub.reveal { transition-delay: .1s; }
 .hero-links.reveal { transition-delay: .16s; }
-.hero-aside.reveal { transition-delay: .18s; }
 .hero-stats.reveal { transition-delay: .22s; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1407,14 +1330,13 @@ body {
 
 @media (max-width: 940px) {
   .hero-layout { grid-template-columns: 1fr; align-items: start; }
-  .hero-aside { display: block; max-width: 560px; margin-top: 18px; }
   .signal-strip-inner { grid-template-columns: repeat(2, 1fr); }
   .signal-strip span:nth-child(3) { border-left: 0; border-top: 1px solid var(--hair); }
   .signal-strip span:nth-child(4) { border-top: 1px solid var(--hair); }
 }
 
 @media (max-width: 860px) {
-  .about-grid { gap: 52px; }
+  .about-grid { grid-template-columns: minmax(0, 1fr); gap: 52px; }
   .timeline-item, .skill-row { grid-template-columns: 1fr; gap: 10px; }
   .project { grid-template-columns: 52px 1fr; }
 }
@@ -1631,4 +1553,33 @@ body {
   .terminal-body::after { animation: none; }
   .nav-caret,
   .terminal-output i { opacity: 1; }
+}
+
+/* Keep content and navigation available when JavaScript is unavailable. */
+@media (max-width: 640px) {
+  .nav-menu { top: 76px; }
+  .nav:not(.nav-enhanced) { height: auto; min-height: 76px; flex-wrap: wrap; padding-block: 16px; }
+  .nav:not(.nav-enhanced) .nav-toggle { display: none; }
+  .nav:not(.nav-enhanced) .nav-menu {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 8px 0 0;
+    border: 0;
+  }
+  .nav:not(.nav-enhanced) .nav-menu li + li { border: 0; }
+  .nav:not(.nav-enhanced) .nav-menu li a { padding: 6px 10px; font-size: .8rem; }
+  .contact-actions .btn-solid { overflow-wrap: anywhere; white-space: normal; min-width: 0; }
+}
+
+/* Motion preferences take precedence over all decorative styles above. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-pending { opacity: 1; transform: none; filter: none; }
 }

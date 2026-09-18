@@ -1,17 +1,16 @@
 {
   "name": "savetheworld",
   "version": "1.0.0",
-  "description": "",
-  "main": "script.js",
+  "description": "Personal portfolio of Matthew Tañada Serrano, Computer Science student and developer.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "check": "node --check script.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wetzuu/SaveTheWorld.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Matthew Tañada Serrano",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
