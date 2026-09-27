@@ -62,6 +62,70 @@ window.addEventListener("scroll", onScroll, { passive: true });
 window.addEventListener("resize", onScroll, { passive: true });
 reducedMotion.addEventListener("change", onScroll);
 
+// Roll each hero statistic into place the first time the row is reached.
+const statsRow = document.querySelector(".hero-stats");
+if (statsRow && !reducedMotion.matches && "IntersectionObserver" in window) {
+  const statNumbers = [...statsRow.querySelectorAll(".stat-num")];
+
+  statNumbers.forEach((number, numberIndex) => {
+    const value = number.textContent.trim();
+    number.dataset.value = value;
+    number.setAttribute("aria-label", value);
+    number.style.setProperty("--number-delay", `${numberIndex * 120}ms`);
+    number.textContent = "";
+
+    [...value].forEach((character, digitIndex) => {
+      const digit = document.createElement("span");
+      digit.className = "stat-digit";
+      digit.setAttribute("aria-hidden", "true");
+
+      const track = document.createElement("span");
+      track.className = "stat-digit-track";
+      track.style.setProperty(
+        "--digit-delay",
+        `${numberIndex * 120 + digitIndex * 85}ms`
+      );
+
+      const finalDigit = Number(character);
+      const sequence = Number.isNaN(finalDigit)
+        ? [character, character, character, character, character]
+        : [0, (finalDigit + 7) % 10, (finalDigit + 3) % 10, (finalDigit + 1) % 10, finalDigit];
+
+      sequence.forEach((item) => {
+        const frame = document.createElement("span");
+        frame.textContent = item;
+        track.appendChild(frame);
+      });
+
+      digit.appendChild(track);
+      number.appendChild(digit);
+    });
+  });
+
+  const finishStats = () => {
+    statNumbers.forEach((number) => {
+      number.textContent = number.dataset.value;
+      number.removeAttribute("aria-label");
+    });
+  };
+
+  const statsObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry?.isIntersecting) return;
+      statsRow.classList.add("stats-active");
+      statsObserver.disconnect();
+    },
+    { threshold: 0.45, rootMargin: "0px 0px -8% 0px" }
+  );
+
+  statsObserver.observe(statsRow);
+  reducedMotion.addEventListener("change", () => {
+    if (!reducedMotion.matches) return;
+    statsObserver.disconnect();
+    finishStats();
+  });
+}
+
 // Mobile nav toggle
 const toggle = document.querySelector(".nav-toggle");
 const menu = document.getElementById("nav-menu");

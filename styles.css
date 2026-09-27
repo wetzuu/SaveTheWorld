@@ -369,7 +369,6 @@ main a:hover {
 
 /* arrow nudges on hover */
 .btn-solid span, .btn-ghost span,
-.project-links a span,
 .contact-alt a span {
   display: inline-block;
   transition: transform 0.3s var(--ease);
@@ -563,14 +562,60 @@ main a:hover {
   line-height: 1.5;
 }
 
-/* Tabular figures keep the number from reflowing while the digits shuffle.
-   The spinning digits sit muted so the real value reads as the resolution. */
+/* Each figure becomes a small odometer when it enters the viewport. */
 .stat-num {
-  display: inline-block;
+  display: inline-flex;
+  align-items: flex-start;
   font-variant-numeric: tabular-nums;
-  transition: color 0.3s var(--ease);
+  white-space: nowrap;
 }
-.stat-num.shuffling { color: var(--faint); }
+.stat-digit {
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+  line-height: 1;
+}
+.stat-digit-track {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  transform: translateY(0);
+  opacity: .42;
+  will-change: transform, filter;
+}
+.stat-digit-track > span {
+  display: block;
+  height: 1em;
+  line-height: 1;
+}
+.hero-stats.stats-active .stat-digit-track {
+  animation: stat-reel 1.55s cubic-bezier(.22, .68, .18, 1) both;
+  animation-delay: calc(.62s + var(--digit-delay));
+}
+.hero-stats.stats-active .stat-num::after {
+  content: "_";
+  width: 0;
+  margin-left: .08em;
+  overflow: visible;
+  color: var(--accent);
+  animation: stat-cursor .9s steps(2, end) 2 both;
+  animation-delay: calc(var(--number-delay, 0ms) + .82s);
+}
+
+@keyframes stat-reel {
+  0% { transform: translateY(0); opacity: .42; filter: blur(0); }
+  24% { transform: translateY(-.92em); opacity: .62; filter: blur(.35px); }
+  49% { transform: translateY(-2.05em); opacity: .8; filter: blur(.55px); }
+  73% { transform: translateY(-3.08em); opacity: .94; filter: blur(.25px); }
+  90% { transform: translateY(-4.035em); opacity: 1; filter: blur(0); }
+  100% { transform: translateY(-4em); opacity: 1; filter: blur(0); }
+}
+
+@keyframes stat-cursor {
+  0%, 42% { opacity: 0; }
+  43%, 78% { opacity: 1; }
+  100% { opacity: 0; }
+}
 
 /* ---------- Ticker ---------- */
 /* Sits flush on the page background so it reads as part of the paper rather
@@ -712,18 +757,6 @@ main a:hover {
 .project h3 a { text-decoration: none; }
 .project h3 a:hover { color: var(--accent-ink); }
 
-.project-arrow {
-  display: inline-block;
-  font-size: 0.72em;
-  margin-left: 8px;
-  color: var(--faint);
-  transition: transform 0.35s var(--ease), color 0.35s;
-}
-.project:hover .project-arrow {
-  transform: translate(3px, -3px);
-  color: var(--ink);
-}
-
 .project-year {
   color: var(--faint);
   white-space: nowrap;
@@ -782,7 +815,6 @@ main a:hover {
   color: var(--accent-ink);
   text-decoration: none;
 }
-.project-links a:hover span { transform: translateX(3px); }
 .project-links a:hover { color: var(--accent); }
 
 /* ---------- Experience / timeline ---------- */
@@ -1177,7 +1209,10 @@ body {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
-.hero-stats { margin-top: 104px; }
+.hero-stats {
+  /* A fixed offset keeps the composition consistent at normal browser scale. */
+  margin-top: 150px;
+}
 .hero-stats > div { padding: 28px 28px 32px 0; }
 .hero-stats > div + div { padding-left: 28px; }
 .hero-stats dt {
@@ -1347,7 +1382,7 @@ body {
   .hero::before { background-size: 64px 64px; }
   .hero-title { font-size: clamp(3.2rem, 15vw, 4.2rem); }
   .hero-eyebrow { margin-bottom: 34px; line-height: 1.65; }
-  .hero-stats { margin-top: 72px; }
+  .hero-stats { margin-top: 100px; }
   .section { padding: 96px 0; }
   .section-title { font-size: clamp(2.6rem, 12vw, 3.5rem); margin-bottom: 52px; }
   .section-lede { margin-top: -34px; margin-bottom: 52px; }
