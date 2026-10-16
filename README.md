@@ -17,6 +17,6 @@ Profile and project descriptions were reviewed on **September 18, 2026** against
 - [Semita](https://github.com/wetzuu/semita): browser-local personal finance tracker.
 - [minamiyuki.bot](https://github.com/wetzuu/minamiyuki.bot): original 2018 project using discord.js v11.
 
-Existing personal experience and organization roles are retained from the portfolio. Project counts refer to the seven displayed entries, not a count of production releases. The old language-percentage chart was removed because its July snapshot no longer describes current work.
+Existing personal experience and organization roles are retained from the portfolio. Project counts refer to the eight displayed entries, not a count of production releases. The old language-percentage chart was removed because its July snapshot no longer describes current work.
 
 When updating content, review the hero, project order/status, skills, and the dated learning note together. Avoid inferring production readiness or individual contributions from repository activity alone.
