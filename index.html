@@ -212,7 +212,7 @@
       <div class="container">
         <p class="section-label reveal">02 / Work</p>
         <h2 class="section-title reveal">Selected projects.</h2>
-        <p class="section-lede reveal">Seven projects spanning web apps hackathon submissions. A mix of ongoing work, deployed apps, and learning projects.</p>
+        <p class="section-lede reveal">Web apps, hackathon builds, and course projects. Some are live, some are still in progress.</p>
 
         <div class="projects">
 
@@ -224,22 +224,11 @@
                 <span class="project-year">2026 · active development</span>
               </header>
               <p class="project-tag">ICBIM 2026 · Presented Project in Thailand</p>
-              <p class="project-desc">
-                A travel-risk information app for severe weather in Metro Manila, Philippines. Enter an origin and
-                destination to explore a real road route, color-coded risk sections,
-                modeled weather, and the sources behind each assessment.
-              </p>
-              <p class="project-note">
-                Grown from a static prototype into a Next.js front end backed by a Java
-                Spring Boot API, combining OSRM routing, OpenStreetMap geocoding, Open-Meteo
-                weather, PAGASA alerts, and optional PostgreSQL/PostGIS storage.
-              </p>
-              <ul class="project-stack" aria-label="Tech stack">
-                <li>TypeScript</li><li>Next.js</li><li>React</li><li>Java</li><li>Spring Boot</li><li>PostgreSQL</li><li>PostGIS</li><li>OSRM</li>
-              </ul>
-              <p class="project-links">
-                <a href="https://github.com/wetzuu/SafeGo" target="_blank" rel="noopener">Code</a>
-              </p>
+              <p class="project-desc">A travel-risk app for severe weather in Metro Manila. Pick two places and it maps the road route between them, marking risky sections using live weather and PAGASA alerts.</p>
+              <div class="project-foot">
+                <ul class="project-stack" aria-label="Tech stack"><li>Next.js</li><li>Spring Boot</li><li>PostgreSQL</li><li>PostGIS</li></ul>
+                <p class="project-links"><a href="https://github.com/wetzuu/SafeGo" target="_blank" rel="noopener">Code</a></p>
+              </div>
             </div>
           </article>
 
@@ -251,26 +240,11 @@
                 <span class="project-year">2026 · hackathon build</span>
               </header>
               <p class="project-tag">Hackathon entry · Kiro x Quick</p>
-              <p class="project-desc">
-                Automated Street &amp; Infrastructure Geospatial Intelligence. ASTIG turns
-                routine vehicle trips into geolocated street-infrastructure reports: sampled
-                street images go through vision AI, issues get mapped and prioritized, and an
-                officer reviews them and tracks work orders through to resolution.
-              </p>
-              <p class="project-note">
-                Built as a team through 12 hour development-period, with Kiro specs driving requirements
-                and tasks. A Vite + React map dashboard and an Expo capture app run on a
-                serverless AWS backend: a Cognito-protected API, S3 image evidence, an
-                S3-triggered Lambda worker, RDS PostgreSQL/PostGIS, and QuickSight analytics.
-                AI findings stay advisory; a person always signs off.
-              </p>
-              <ul class="project-stack" aria-label="Tech stack">
-                <li>TypeScript</li><li>React</li><li>Vite</li><li>Leaflet</li><li>Expo</li><li>AWS Lambda</li><li>S3</li><li>Cognito</li><li>PostGIS</li><li>Kiro</li>
-              </ul>
-              <p class="project-links">
-                <a href="https://astig-xi.vercel.app" target="_blank" rel="noopener">Live site</a>
-                <a href="https://github.com/aeyvmor/CuddleBuddies" target="_blank" rel="noopener">Code</a>
-              </p>
+              <p class="project-desc">Turns street photos from vehicle trips into a map of road and infrastructure issues that an officer can review and turn into work orders. Built as a team in 12 hours.</p>
+              <div class="project-foot">
+                <ul class="project-stack" aria-label="Tech stack"><li>React</li><li>Expo</li><li>AWS</li><li>PostGIS</li><li>Kiro</li></ul>
+                <p class="project-links"><a href="https://astig-xi.vercel.app" target="_blank" rel="noopener">Live site</a><a href="https://github.com/aeyvmor/CuddleBuddies" target="_blank" rel="noopener">Code</a></p>
+              </div>
             </div>
           </article>
 
@@ -282,20 +256,11 @@
                 <span class="project-year">2026 · early development</span>
               </header>
               <p class="project-tag">Cintana Alliance 2026 · Hackathon entry</p>
-              <p class="project-desc">
-                A developing offline math notebook that recognizes handwritten expressions,
-                solves them locally, and writes answers back in the user's handwriting.
-              </p>
-              <p class="project-note">
-                The Windows app is in early development, exploring pen input, handwriting recognition, and computer
-                algebra without a cloud account.
-              </p>
-              <ul class="project-stack" aria-label="Tech stack">
-                <li>C#</li><li>.NET 8</li><li>Handwriting recognition</li><li>Offline desktop app</li>
-              </ul>
-              <p class="project-links">
-                <a href="https://github.com/aeyvmor/penumbra" target="_blank" rel="noopener">Project &amp; code</a>
-              </p>
+              <p class="project-desc">An offline math notebook for Windows. It reads handwritten equations, solves them on the device, and writes the answer back in your handwriting.</p>
+              <div class="project-foot">
+                <ul class="project-stack" aria-label="Tech stack"><li>C#</li><li>.NET 8</li></ul>
+                <p class="project-links"><a href="https://github.com/aeyvmor/penumbra" target="_blank" rel="noopener">Code</a></p>
+              </div>
             </div>
           </article>
 
@@ -306,23 +271,11 @@
                 <h3><a href="https://github.com/wetzuu/semita" target="_blank" rel="noopener">Semita</a></h3>
                 <span class="project-year">2026 · live</span>
               </header>
-              <p class="project-desc">
-                A private, browser-based personal finance tracker. Record income and
-                expenses, manage categories and payment methods, set monthly budgets,
-                review reports, and export your data when needed.
-              </p>
-              <p class="project-note">
-                This was built around everyday student budgeting in the Philippines: recurring transactions,
-                quick-add shortcuts, and spending trends. Zustand keeps state in local
-                browser storage, with JSON export and import for backups.
-              </p>
-              <ul class="project-stack" aria-label="Tech stack">
-                <li>TypeScript</li><li>React</li><li>Vite</li><li>Zustand</li><li>React Router</li><li>Recharts</li><li>Framer Motion</li><li>date-fns</li>
-              </ul>
-              <p class="project-links">
-                <a href="https://pecunia-eight.vercel.app" target="_blank" rel="noopener">Live site</a>
-                <a href="https://github.com/wetzuu/semita" target="_blank" rel="noopener">Code</a>
-              </p>
+              <p class="project-desc">A private finance tracker that runs in the browser. Income, expenses, budgets, and reports, all saved locally with no account needed.</p>
+              <div class="project-foot">
+                <ul class="project-stack" aria-label="Tech stack"><li>React</li><li>TypeScript</li><li>Zustand</li><li>Recharts</li></ul>
+                <p class="project-links"><a href="https://pecunia-eight.vercel.app" target="_blank" rel="noopener">Live site</a><a href="https://github.com/wetzuu/semita" target="_blank" rel="noopener">Code</a></p>
+              </div>
             </div>
           </article>
 
@@ -333,22 +286,11 @@
                 <h3><a href="https://github.com/wetzuu/BahayniKuya" target="_blank" rel="noopener">Bahay ni Kuya</a></h3>
                 <span class="project-year">2026 · course project</span>
               </header>
-              <p class="project-desc">
-                An app for a boarding-house management system: tenants, rooms, leases,
-                payments, maintenance requests, and reports; plus an ER-diagram viewer
-                and database backup pages for the admin side.
-              </p>
-              <p class="project-note">
-                A full-stack project connecting a React dashboard to an Express
-                API, Prisma, and PostgreSQL. Working across the interface, data model,
-                and local setup has been a practical introduction to backend development in our classes.
-              </p>
-              <ul class="project-stack" aria-label="Tech stack">
-                <li>TypeScript</li><li>React</li><li>Express</li><li>Prisma</li><li>PostgreSQL</li><li>TanStack Table &amp; Query</li>
-              </ul>
-              <p class="project-links">
-                <a href="https://github.com/wetzuu/BahayniKuya" target="_blank" rel="noopener">Code</a>
-              </p>
+              <p class="project-desc">A boarding-house management system for tenants, rooms, leases, payments, and maintenance requests. The class project that got me into backend work.</p>
+              <div class="project-foot">
+                <ul class="project-stack" aria-label="Tech stack"><li>React</li><li>Express</li><li>Prisma</li><li>PostgreSQL</li></ul>
+                <p class="project-links"><a href="https://github.com/wetzuu/BahayniKuya" target="_blank" rel="noopener">Code</a></p>
+              </div>
             </div>
           </article>
 
@@ -359,23 +301,11 @@
                 <h3><a href="https://github.com/wetzuu/une-odeur-v2" target="_blank" rel="noopener">une odeur</a></h3>
                 <span class="project-year">2026 · live</span>
               </header>
-              <p class="project-desc">
-                A passion project: a fragrance discovery and review site for local and, perhaps, obscure brands.
-                Browse perfumes by category, read community reviews, and keep an account
-                of your favorites. Built with React and Supabase for auth and data.
-              </p>
-              <p class="project-note">
-                This is mostly a full rewrite. v1 was built in Astro, and
-                rebuilding it in React with a real backend meant rethinking routing, state,
-                and data fetching from scratch.
-              </p>
-              <ul class="project-stack" aria-label="Tech stack">
-                <li>React</li><li>Supabase</li><li>Vite</li><li>Tailwind CSS</li>
-              </ul>
-              <p class="project-links">
-                <a href="https://une-odeur-v2.vercel.app" target="_blank" rel="noopener">Live site</a>
-                <a href="https://github.com/wetzuu/une-odeur-v2" target="_blank" rel="noopener">Code</a>
-              </p>
+              <p class="project-desc">A fragrance discovery and review site for local and lesser-known brands. Rewritten from Astro to React once it needed accounts and reviews.</p>
+              <div class="project-foot">
+                <ul class="project-stack" aria-label="Tech stack"><li>React</li><li>Supabase</li><li>Tailwind CSS</li></ul>
+                <p class="project-links"><a href="https://une-odeur-v2.vercel.app" target="_blank" rel="noopener">Live site</a><a href="https://github.com/wetzuu/une-odeur-v2" target="_blank" rel="noopener">Code</a></p>
+              </div>
             </div>
           </article>
 
@@ -386,17 +316,11 @@
                 <h3><a href="https://github.com/wetzuu/minamiyuki.bot" target="_blank" rel="noopener">minamiyuki.bot</a></h3>
                 <span class="project-year">2018 · legacy project</span>
               </header>
-              <p class="project-desc">
-                My personal Discord bot and the project that started everything. First
-                written in 2018, with moderation and fun commands built on discord.js v11.
-                Kept as a record of where I started.
-              </p>
-              <ul class="project-stack" aria-label="Tech stack">
-                <li>JavaScript</li><li>discord.js</li><li>Node.js</li>
-              </ul>
-              <p class="project-links">
-                <a href="https://github.com/wetzuu/minamiyuki.bot" target="_blank" rel="noopener">Code</a>
-              </p>
+              <p class="project-desc">My Discord bot from 2018 and the project that got me into programming. Kept as a record of where I started.</p>
+              <div class="project-foot">
+                <ul class="project-stack" aria-label="Tech stack"><li>JavaScript</li><li>discord.js</li></ul>
+                <p class="project-links"><a href="https://github.com/wetzuu/minamiyuki.bot" target="_blank" rel="noopener">Code</a></p>
+              </div>
             </div>
           </article>
 
